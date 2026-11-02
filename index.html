@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spolupráca viacerých tried</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style id="reveal-core">
+/*!
+* reveal.js 5.1.0
+* https://revealjs.com
+* MIT licensed
+*
+* Copyright (C) 2011-2024 Hakim El Hattab, https://hakim.se
+*/.reveal .r-stretch,.reveal .stretch{max-width:none;max-height:none}.reveal pre.r-stretch code,.reveal pre.stretch code{height:100%;max-height:100%;box-sizing:border-box}.reveal .r-fit-text{display:inline-block;white-space:nowrap}.reveal .r-stack{display:grid;grid-template-rows:100%}.reveal .r-stack>*{grid-area:1/1;margin:auto}.reveal .r-hstack,.reveal .r-vstack{display:flex}.reveal .r-hstack img,.reveal .r-hstack video,.reveal .r-vstack img,.reveal .r-vstack video{min-width:0;min-height:0;object-fit:contain}.reveal .r-vstack{flex-direction:column;align-items:center;justify-content:center}.reveal .r-hstack{flex-direction:row;align-items:center;justify-content:center}.reveal .items-stretch{align-items:stretch}.reveal .items-start{align-items:flex-start}.reveal .items-center{align-items:center}.reveal .items-end{align-items:flex-end}.reveal .justify-between{justify-content:space-between}.reveal .justify-around{justify-content:space-around}.reveal .justify-start{justify-content:flex-start}.reveal .justify-center{justify-content:center}.reveal .justify-end{justify-content:flex-end}html.reveal-full-page{width:100%;height:100%;height:100vh;height:calc(var(--vh,1vh) * 100);height:100svh;overflow:hidden}.reveal-viewport{height:100%;overflow:hidden;position:relative;line-height:1;margin:0;background-color:#fff;color:#000;--r-controls-spacing:12px}.reveal-viewport:fullscreen{top:0!important;left:0!important;width:100%!important;height:100%!important;transform:none!important}.reveal .fragment{transition:all .2s ease}.reveal .fragment:not(.custom){opacity:0;visibility:hidden;will-change:opacity}.reveal .fragment.visible{opacity:1;visibility:inherit}.reveal .fragment.disabled{transition:none}.reveal .fragment.grow{opacity:1;visibility:inherit}.reveal .fragment.grow.visible{transform:scale(1.3)}.reveal .fragment.shrink{opacity:1;visibility:inherit}.reveal .fragment.shrink.visible{transform:scale(.7)}.reveal .fragment.zoom-in{transform:scale(.1)}.reveal .fragment.zoom-in.visible{transform:none}.reveal .fragment.fade-out{opacity:1;visibility:inherit}.reveal .fragment.fade-out.visible{opacity:0;visibility:hidden}.reveal .fragment.semi-fade-out{opacity:1;visibility:inherit}.reveal .fragment.semi-fade-out.visible{opacity:.5;visibility:inherit}.reveal .fragment.strike{opacity:1;visibility:inherit}.reveal .fragment.strike.visible{text-decoration:line-through}.reveal .fragment.fade-up{transform:translate(0,40px)}.reveal .fragment.fade-up.visible{transform:translate(0,0)}.reveal .fragment.fade-down{transform:translate(0,-40px)}.reveal .fragment.fade-down.visible{transform:translate(0,0)}.reveal .fragment.fade-right{transform:translate(-40px,0)}.reveal .fragment.fade-right.visible{transform:translate(0,0)}.reveal .fragment.fade-left{transform:translate(40px,0)}.reveal .fragment.fade-left.visible{transform:translate(0,0)}.reveal .fragment.current-visible,.reveal .fragment.fade-in-then-out{opacity:0;visibility:hidden}.reveal .fragment.current-visible.current-fragment,.reveal .fragment.fade-in-then-out.current-fragment{opacity:1;visibility:inherit}.reveal .fragment.fade-in-then-semi-out{opacity:0;visibility:hidden}.reveal .fragment.fade-in-then-semi-out.visible{opacity:.5;visibility:inherit}.reveal .fragment.fade-in-then-semi-out.current-fragment{opacity:1;visibility:inherit}.reveal .fragment.highlight-blue,.reveal .fragment.highlight-current-blue,.reveal .fragment.highlight-current-green,.reveal .fragment.highlight-current-red,.reveal .fragment.highlight-green,.reveal .fragment.highlight-red{opacity:1;visibility:inherit}.reveal .fragment.highlight-red.visible{color:#ff2c2d}.reveal .fragment.highlight-green.visible{color:#17ff2e}.reveal .fragment.highlight-blue.visible{color:#1b91ff}.reveal .fragment.highlight-current-red.current-fragment{color:#ff2c2d}.reveal .fragment.highlight-current-green.current-fragment{color:#17ff2e}.reveal .fragment.highlight-current-blue.current-fragment{color:#1b91ff}.reveal:after{content:"";font-style:italic}.reveal iframe{z-index:1}.reveal a{position:relative}@keyframes bounce-right{0%,10%,25%,40%,50%{transform:translateX(0)}20%{transform:translateX(10px)}30%{transform:translateX(-5px)}}@keyframes bounce-left{0%,10%,25%,40%,50%{transform:translateX(0)}20%{transform:translateX(-10px)}30%{transform:translateX(5px)}}@keyframes bounce-down{0%,10%,25%,40%,50%{transform:translateY(0)}20%{transform:translateY(10px)}30%{transform:translateY(-5px)}}.reveal .controls{display:none;position:absolute;top:auto;bottom:var(--r-controls-spacing);right:var(--r-controls-spacing);left:auto;z-index:11;color:#000;pointer-events:none;font-size:10px}.reveal .controls button{position:absolute;padding:0;background-color:transparent;border:0;outline:0;cursor:pointer;color:currentColor;transform:scale(.9999);transition:color .2s ease,opacity .2s ease,transform .2s ease;z-index:2;pointer-events:auto;font-size:inherit;visibility:hidden;opacity:0;-webkit-appearance:none;-webkit-tap-highlight-color:transparent}.reveal .controls .controls-arrow:after,.reveal .controls .controls-arrow:before{content:"";position:absolute;top:0;left:0;width:2.6em;height:.5em;border-radius:.25em;background-color:currentColor;transition:all .15s ease,background-color .8s ease;transform-origin:.2em 50%;will-change:transform}.reveal .controls .controls-arrow{position:relative;width:3.6em;height:3.6em}.reveal .controls .controls-arrow:before{transform:translateX(.5em) translateY(1.55em) rotate(45deg)}.reveal .controls .controls-arrow:after{transform:translateX(.5em) translateY(1.55em) rotate(-45deg)}.reveal .controls .controls-arrow:hover:before{transform:translateX(.5em) translateY(1.55em) rotate(40deg)}.reveal .controls .controls-arrow:hover:after{transform:translateX(.5em) translateY(1.55em) rotate(-40deg)}.reveal .controls .controls-arrow:active:before{transform:translateX(.5em) translateY(1.55em) rotate(36deg)}.reveal .controls .controls-arrow:active:after{transform:translateX(.5em) translateY(1.55em) rotate(-36deg)}.reveal .controls .navigate-left{right:6.4em;bottom:3.2em;transform:translateX(-10px)}.reveal .controls .navigate-left.highlight{animation:bounce-left 2s 50 both ease-out}.reveal .controls .navigate-right{right:0;bottom:3.2em;transform:translateX(10px)}.reveal .controls .navigate-right .controls-arrow{transform:rotate(180deg)}.reveal .controls .navigate-right.highlight{animation:bounce-right 2s 50 both ease-out}.reveal .controls .navigate-up{right:3.2em;bottom:6.4em;transform:translateY(-10px)}.reveal .controls .navigate-up .controls-arrow{transform:rotate(90deg)}.reveal .controls .navigate-down{right:3.2em;bottom:-1.4em;padding-bottom:1.4em;transform:translateY(10px)}.reveal .controls .navigate-down .controls-arrow{transform:rotate(-90deg)}.reveal .controls .navigate-down.highlight{animation:bounce-down 2s 50 both ease-out}.reveal .controls[data-controls-back-arrows=faded] .navigate-up.enabled{opacity:.3}.reveal .controls[data-controls-back-arrows=faded] .navigate-up.enabled:hover{opacity:1}.reveal .controls[data-controls-back-arrows=hidden] .navigate-up.enabled{opacity:0;visibility:hidden}.reveal .controls .enabled{visibility:visible;opacity:.9;cursor:pointer;transform:none}.reveal .controls .enabled.fragmented{opacity:.5}.reveal .controls .enabled.fragmented:hover,.reveal .controls .enabled:hover{opacity:1}.reveal:not(.rtl) .controls[data-controls-back-arrows=faded] .navigate-left.enabled{opacity:.3}.reveal:not(.rtl) .controls[data-controls-back-arrows=faded] .navigate-left.enabled:hover{opacity:1}.reveal:not(.rtl) .controls[data-controls-back-arrows=hidden] .navigate-left.enabled{opacity:0;visibility:hidden}.reveal.rtl .controls[data-controls-back-arrows=faded] .navigate-right.enabled{opacity:.3}.reveal.rtl .controls[data-controls-back-arrows=faded] .navigate-right.enabled:hover{opacity:1}.reveal.rtl .controls[data-controls-back-arrows=hidden] .navigate-right.enabled{opacity:0;visibility:hidden}.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-down,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-up{display:none}.reveal:not(.has-vertical-slides) .controls .navigate-left,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-left{bottom:1.4em;right:5.5em}.reveal:not(.has-vertical-slides) .controls .navigate-right,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-right{bottom:1.4em;right:.5em}.reveal:not(.has-horizontal-slides) .controls .navigate-up{right:1.4em;bottom:5em}.reveal:not(.has-horizontal-slides) .controls .navigate-down{right:1.4em;bottom:.5em}.reveal.has-dark-background .controls{color:#fff}.reveal.has-light-background .controls{color:#000}.reveal.no-hover .controls .controls-arrow:active:before,.reveal.no-hover .controls .controls-arrow:hover:before{transform:translateX(.5em) translateY(1.55em) rotate(45deg)}.reveal.no-hover .controls .controls-arrow:active:after,.reveal.no-hover .controls .controls-arrow:hover:after{transform:translateX(.5em) translateY(1.55em) rotate(-45deg)}@media screen and (min-width:500px){.reveal-viewport{--r-controls-spacing:0.8em}.reveal .controls[data-controls-layout=edges]{top:0;right:0;bottom:0;left:0}.reveal .controls[data-controls-layout=edges] .navigate-down,.reveal .controls[data-controls-layout=edges] .navigate-left,.reveal .controls[data-controls-layout=edges] .navigate-right,.reveal .controls[data-controls-layout=edges] .navigate-up{bottom:auto;right:auto}.reveal .controls[data-controls-layout=edges] .navigate-left{top:50%;left:var(--r-controls-spacing);margin-top:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-right{top:50%;right:var(--r-controls-spacing);margin-top:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-up{top:var(--r-controls-spacing);left:50%;margin-left:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-down{bottom:calc(var(--r-controls-spacing) - 1.4em + .3em);left:50%;margin-left:-1.8em}}.reveal .progress{position:absolute;display:none;height:3px;width:100%;bottom:0;left:0;z-index:10;background-color:rgba(0,0,0,.2);color:#fff}.reveal .progress:after{content:"";display:block;position:absolute;height:10px;width:100%;top:-10px}.reveal .progress span{display:block;height:100%;width:100%;background-color:currentColor;transition:transform .8s cubic-bezier(.26,.86,.44,.985);transform-origin:0 0;transform:scaleX(0)}.reveal .slide-number{position:absolute;display:block;right:8px;bottom:8px;z-index:31;font-family:Helvetica,sans-serif;font-size:12px;line-height:1;color:#fff;background-color:rgba(0,0,0,.4);padding:5px}.reveal .slide-number a{color:currentColor}.reveal .slide-number-delimiter{margin:0 3px}.reveal{position:relative;width:100%;height:100%;overflow:hidden;touch-action:pinch-zoom}.reveal.embedded{touch-action:pan-y}.reveal.embedded.is-vertical-slide{touch-action:none}.reveal .slides{position:absolute;width:100%;height:100%;top:0;right:0;bottom:0;left:0;margin:auto;pointer-events:none;overflow:visible;z-index:1;text-align:center;perspective:600px;perspective-origin:50% 40%}.reveal .slides>section{perspective:600px}.reveal .slides>section,.reveal .slides>section>section{display:none;position:absolute;width:100%;pointer-events:auto;z-index:10;transform-style:flat;transition:transform-origin .8s cubic-bezier(.26,.86,.44,.985),transform .8s cubic-bezier(.26,.86,.44,.985),visibility .8s cubic-bezier(.26,.86,.44,.985),opacity .8s cubic-bezier(.26,.86,.44,.985)}.reveal[data-transition-speed=fast] .slides section{transition-duration:.4s}.reveal[data-transition-speed=slow] .slides section{transition-duration:1.2s}.reveal .slides section[data-transition-speed=fast]{transition-duration:.4s}.reveal .slides section[data-transition-speed=slow]{transition-duration:1.2s}.reveal .slides>section.stack{padding-top:0;padding-bottom:0;pointer-events:none;height:100%}.reveal .slides>section.present,.reveal .slides>section>section.present{display:block;z-index:11;opacity:1}.reveal .slides>section:empty,.reveal .slides>section>section:empty,.reveal .slides>section>section[data-background-interactive],.reveal .slides>section[data-background-interactive]{pointer-events:none}.reveal.center,.reveal.center .slides,.reveal.center .slides section{min-height:0!important}.reveal .slides>section:not(.present),.reveal .slides>section>section:not(.present){pointer-events:none}.reveal.overview .slides>section,.reveal.overview .slides>section>section{pointer-events:auto}.reveal .slides>section.future,.reveal .slides>section.future>section,.reveal .slides>section.past,.reveal .slides>section.past>section,.reveal .slides>section>section.future,.reveal .slides>section>section.past{opacity:0}.reveal .slides>section[data-transition=slide].past,.reveal .slides>section[data-transition~=slide-out].past,.reveal.slide .slides>section:not([data-transition]).past{transform:translate(-150%,0)}.reveal .slides>section[data-transition=slide].future,.reveal .slides>section[data-transition~=slide-in].future,.reveal.slide .slides>section:not([data-transition]).future{transform:translate(150%,0)}.reveal .slides>section>section[data-transition=slide].past,.reveal .slides>section>section[data-transition~=slide-out].past,.reveal.slide .slides>section>section:not([data-transition]).past{transform:translate(0,-150%)}.reveal .slides>section>section[data-transition=slide].future,.reveal .slides>section>section[data-transition~=slide-in].future,.reveal.slide .slides>section>section:not([data-transition]).future{transform:translate(0,150%)}.reveal .slides>section[data-transition=linear].past,.reveal .slides>section[data-transition~=linear-out].past,.reveal.linear .slides>section:not([data-transition]).past{transform:translate(-150%,0)}.reveal .slides>section[data-transition=linear].future,.reveal .slides>section[data-transition~=linear-in].future,.reveal.linear .slides>section:not([data-transition]).future{transform:translate(150%,0)}.reveal .slides>section>section[data-transition=linear].past,.reveal .slides>section>section[data-transition~=linear-out].past,.reveal.linear .slides>section>section:not([data-transition]).past{transform:translate(0,-150%)}.reveal .slides>section>section[data-transition=linear].future,.reveal .slides>section>section[data-transition~=linear-in].future,.reveal.linear .slides>section>section:not([data-transition]).future{transform:translate(0,150%)}.reveal .slides section[data-transition=default].stack,.reveal.default .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=default].past,.reveal .slides>section[data-transition~=default-out].past,.reveal.default .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=default].future,.reveal .slides>section[data-transition~=default-in].future,.reveal.default .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=default].past,.reveal .slides>section>section[data-transition~=default-out].past,.reveal.default .slides>section>section:not([data-transition]).past{transform:translate3d(0,-300px,0) rotateX(70deg) translate3d(0,-300px,0)}.reveal .slides>section>section[data-transition=default].future,.reveal .slides>section>section[data-transition~=default-in].future,.reveal.default .slides>section>section:not([data-transition]).future{transform:translate3d(0,300px,0) rotateX(-70deg) translate3d(0,300px,0)}.reveal .slides section[data-transition=convex].stack,.reveal.convex .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=convex].past,.reveal .slides>section[data-transition~=convex-out].past,.reveal.convex .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=convex].future,.reveal .slides>section[data-transition~=convex-in].future,.reveal.convex .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=convex].past,.reveal .slides>section>section[data-transition~=convex-out].past,.reveal.convex .slides>section>section:not([data-transition]).past{transform:translate3d(0,-300px,0) rotateX(70deg) translate3d(0,-300px,0)}.reveal .slides>section>section[data-transition=convex].future,.reveal .slides>section>section[data-transition~=convex-in].future,.reveal.convex .slides>section>section:not([data-transition]).future{transform:translate3d(0,300px,0) rotateX(-70deg) translate3d(0,300px,0)}.reveal .slides section[data-transition=concave].stack,.reveal.concave .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=concave].past,.reveal .slides>section[data-transition~=concave-out].past,.reveal.concave .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=concave].future,.reveal .slides>section[data-transition~=concave-in].future,.reveal.concave .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(-90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=concave].past,.reveal .slides>section>section[data-transition~=concave-out].past,.reveal.concave .slides>section>section:not([data-transition]).past{transform:translate3d(0,-80%,0) rotateX(-70deg) translate3d(0,-80%,0)}.reveal .slides>section>section[data-transition=concave].future,.reveal .slides>section>section[data-transition~=concave-in].future,.reveal.concave .slides>section>section:not([data-transition]).future{transform:translate3d(0,80%,0) rotateX(70deg) translate3d(0,80%,0)}.reveal .slides section[data-transition=zoom],.reveal.zoom .slides section:not([data-transition]){transition-timing-function:ease}.reveal .slides>section[data-transition=zoom].past,.reveal .slides>section[data-transition~=zoom-out].past,.reveal.zoom .slides>section:not([data-transition]).past{visibility:hidden;transform:scale(16)}.reveal .slides>section[data-transition=zoom].future,.reveal .slides>section[data-transition~=zoom-in].future,.reveal.zoom .slides>section:not([data-transition]).future{visibility:hidden;transform:scale(.2)}.reveal .slides>section>section[data-transition=zoom].past,.reveal .slides>section>section[data-transition~=zoom-out].past,.reveal.zoom .slides>section>section:not([data-transition]).past{transform:scale(16)}.reveal .slides>section>section[data-transition=zoom].future,.reveal .slides>section>section[data-transition~=zoom-in].future,.reveal.zoom .slides>section>section:not([data-transition]).future{transform:scale(.2)}.reveal.cube .slides{perspective:1300px}.reveal.cube .slides section{padding:30px;min-height:700px;backface-visibility:hidden;box-sizing:border-box;transform-style:preserve-3d}.reveal.center.cube .slides section{min-height:0}.reveal.cube .slides section:not(.stack):before{content:"";position:absolute;display:block;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.1);border-radius:4px;transform:translateZ(-20px)}.reveal.cube .slides section:not(.stack):after{content:"";position:absolute;display:block;width:90%;height:30px;left:5%;bottom:0;background:0 0;z-index:1;border-radius:4px;box-shadow:0 95px 25px rgba(0,0,0,.2);transform:translateZ(-90px) rotateX(65deg)}.reveal.cube .slides>section.stack{padding:0;background:0 0}.reveal.cube .slides>section.past{transform-origin:100% 0;transform:translate3d(-100%,0,0) rotateY(-90deg)}.reveal.cube .slides>section.future{transform-origin:0 0;transform:translate3d(100%,0,0) rotateY(90deg)}.reveal.cube .slides>section>section.past{transform-origin:0 100%;transform:translate3d(0,-100%,0) rotateX(90deg)}.reveal.cube .slides>section>section.future{transform-origin:0 0;transform:translate3d(0,100%,0) rotateX(-90deg)}.reveal.page .slides{perspective-origin:0 50%;perspective:3000px}.reveal.page .slides section{padding:30px;min-height:700px;box-sizing:border-box;transform-style:preserve-3d}.reveal.page .slides section.past{z-index:12}.reveal.page .slides section:not(.stack):before{content:"";position:absolute;display:block;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.1);transform:translateZ(-20px)}.reveal.page .slides section:not(.stack):after{content:"";position:absolute;display:block;width:90%;height:30px;left:5%;bottom:0;background:0 0;z-index:1;border-radius:4px;box-shadow:0 95px 25px rgba(0,0,0,.2);-webkit-transform:translateZ(-90px) rotateX(65deg)}.reveal.page .slides>section.stack{padding:0;background:0 0}.reveal.page .slides>section.past{transform-origin:0 0;transform:translate3d(-40%,0,0) rotateY(-80deg)}.reveal.page .slides>section.future{transform-origin:100% 0;transform:translate3d(0,0,0)}.reveal.page .slides>section>section.past{transform-origin:0 0;transform:translate3d(0,-40%,0) rotateX(80deg)}.reveal.page .slides>section>section.future{transform-origin:0 100%;transform:translate3d(0,0,0)}.reveal .slides section[data-transition=fade],.reveal.fade .slides section:not([data-transition]),.reveal.fade .slides>section>section:not([data-transition]){transform:none;transition:opacity .5s}.reveal.fade.overview .slides section,.reveal.fade.overview .slides>section>section{transition:none}.reveal .slides section[data-transition=none],.reveal.none .slides section:not([data-transition]){transform:none;transition:none}.reveal .pause-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;visibility:hidden;opacity:0;z-index:100;transition:all 1s ease}.reveal .pause-overlay .resume-button{position:absolute;bottom:20px;right:20px;color:#ccc;border-radius:2px;padding:6px 14px;border:2px solid #ccc;font-size:16px;background:0 0;cursor:pointer}.reveal .pause-overlay .resume-button:hover{color:#fff;border-color:#fff}.reveal.paused .pause-overlay{visibility:visible;opacity:1}.reveal .no-transition,.reveal .no-transition *,.reveal .slides.disable-slide-transitions section{transition:none!important}.reveal .slides.disable-slide-transitions section{transform:none!important}.reveal .backgrounds{position:absolute;width:100%;height:100%;top:0;left:0;perspective:600px}.reveal .slide-background{display:none;position:absolute;width:100%;height:100%;opacity:0;visibility:hidden;overflow:hidden;background-color:rgba(0,0,0,0);transition:all .8s cubic-bezier(.26,.86,.44,.985)}.reveal .slide-background-content{position:absolute;width:100%;height:100%;background-position:50% 50%;background-repeat:no-repeat;background-size:cover}.reveal .slide-background.stack{display:block}.reveal .slide-background.present{opacity:1;visibility:visible;z-index:2}.print-pdf .reveal .slide-background{opacity:1!important;visibility:visible!important}.reveal .slide-background video{position:absolute;width:100%;height:100%;max-width:none;max-height:none;top:0;left:0;object-fit:cover}.reveal .slide-background[data-background-size=contain] video{object-fit:contain}.reveal>.backgrounds .slide-background[data-background-transition=none],.reveal[data-background-transition=none]>.backgrounds .slide-background:not([data-background-transition]){transition:none}.reveal>.backgrounds .slide-background[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background:not([data-background-transition]){opacity:1}.reveal>.backgrounds .slide-background.past[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background.past:not([data-background-transition]){transform:translate(-100%,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background.future:not([data-background-transition]){transform:translate(100%,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){transform:translate(0,-100%)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){transform:translate(0,100%)}.reveal>.backgrounds .slide-background.past[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(0,-100%,0) rotateX(90deg) translate3d(0,-100%,0)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(0,100%,0) rotateX(-90deg) translate3d(0,100%,0)}.reveal>.backgrounds .slide-background.past[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(-100%,0,0) rotateY(90deg) translate3d(-100%,0,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(100%,0,0) rotateY(-90deg) translate3d(100%,0,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(0,-100%,0) rotateX(-90deg) translate3d(0,-100%,0)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(0,100%,0) rotateX(90deg) translate3d(0,100%,0)}.reveal>.backgrounds .slide-background[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background:not([data-background-transition]){transition-timing-function:ease}.reveal>.backgrounds .slide-background.past[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background.past:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(16)}.reveal>.backgrounds .slide-background.future[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background.future:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(.2)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(16)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(.2)}.reveal[data-transition-speed=fast]>.backgrounds .slide-background{transition-duration:.4s}.reveal[data-transition-speed=slow]>.backgrounds .slide-background{transition-duration:1.2s}.reveal [data-auto-animate-target^=unmatched]{will-change:opacity}.reveal section[data-auto-animate]:not(.stack):not([data-auto-animate=running]) [data-auto-animate-target^=unmatched]{opacity:0}.reveal.overview{perspective-origin:50% 50%;perspective:700px}.reveal.overview .slides{-moz-transform-style:preserve-3d}.reveal.overview .slides section{height:100%;top:0!important;opacity:1!important;overflow:hidden;visibility:visible!important;cursor:pointer;box-sizing:border-box}.reveal.overview .slides section.present,.reveal.overview .slides section:hover{outline:10px solid rgba(150,150,150,.4);outline-offset:10px}.reveal.overview .slides section .fragment{opacity:1;transition:none}.reveal.overview .slides section:after,.reveal.overview .slides section:before{display:none!important}.reveal.overview .slides>section.stack{padding:0;top:0!important;background:0 0;outline:0;overflow:visible}.reveal.overview .backgrounds{perspective:inherit;-moz-transform-style:preserve-3d}.reveal.overview .backgrounds .slide-background{opacity:1;visibility:visible;outline:10px solid rgba(150,150,150,.1);outline-offset:10px}.reveal.overview .backgrounds .slide-background.stack{overflow:visible}.reveal.overview .slides section,.reveal.overview-deactivating .slides section{transition:none}.reveal.overview .backgrounds .slide-background,.reveal.overview-deactivating .backgrounds .slide-background{transition:none}.reveal.rtl .slides,.reveal.rtl .slides h1,.reveal.rtl .slides h2,.reveal.rtl .slides h3,.reveal.rtl .slides h4,.reveal.rtl .slides h5,.reveal.rtl .slides h6{direction:rtl;font-family:sans-serif}.reveal.rtl code,.reveal.rtl pre{direction:ltr}.reveal.rtl ol,.reveal.rtl ul{text-align:right}.reveal.rtl .progress span{transform-origin:100% 0}.reveal.has-parallax-background .backgrounds{transition:all .8s ease}.reveal.has-parallax-background[data-transition-speed=fast] .backgrounds{transition-duration:.4s}.reveal.has-parallax-background[data-transition-speed=slow] .backgrounds{transition-duration:1.2s}.reveal>.overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(0,0,0,.95);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:all .3s ease}.reveal>.overlay .spinner{position:absolute;display:block;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;z-index:10;background-image:url(data:image/gif;base64,R0lGODlhIAAgAPMAAJmZmf%2F%2F%2F6%2Bvr8nJybW1tcDAwOjo6Nvb26ioqKOjo7Ozs%2FLy8vz8%2FAAAAAAAAAAAACH%2FC05FVFNDQVBFMi4wAwEAAAAh%2FhpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh%2BQQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ%2FV%2FnmOM82XiHRLYKhKP1oZmADdEAAAh%2BQQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY%2FCZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB%2BA4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6%2BHo7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq%2BB6QDtuetcaBPnW6%2BO7wDHpIiK9SaVK5GgV543tzjgGcghAgAh%2BQQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK%2B%2BG%2Bw48edZPK%2BM6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE%2BG%2BcD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm%2BFNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk%2BaV%2BoJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0%2FVNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc%2BXiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30%2FiI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE%2FjiuL04RGEBgwWhShRgQExHBAAh%2BQQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR%2BipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY%2BYip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd%2BMFCN6HAAIKgNggY0KtEBAAh%2BQQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1%2BvsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d%2BjYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg%2BygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0%2Bbm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h%2BKr0SJ8MFihpNbx%2B4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX%2BBP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA%3D%3D);visibility:visible;opacity:.6;transition:all .3s ease}.reveal>.overlay header{position:absolute;left:0;top:0;width:100%;padding:5px;z-index:2;box-sizing:border-box}.reveal>.overlay header a{display:inline-block;width:40px;height:40px;line-height:36px;padding:0 10px;float:right;opacity:.6;box-sizing:border-box}.reveal>.overlay header a:hover{opacity:1}.reveal>.overlay header a .icon{display:inline-block;width:20px;height:20px;background-position:50% 50%;background-size:100%;background-repeat:no-repeat}.reveal>.overlay header a.close .icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVRYR8WX4VHDMAxG6wnoJrABZQPYBCaBTWAD2g1gE5gg6OOsXuxIlr40d81dfrSJ9V4c2VLK7spHuTJ/5wpM07QXuXc5X0opX2tEJcadjHuV80li/FgxTIEK/5QBCICBD6xEhSMGHgQPgBgLiYVAB1dpSqKDawxTohFw4JSEA3clzgIBPCURwE2JucBR7rhPJJv5OpJwDX+SfDjgx1wACQeJG1aChP9K/IMmdZ8DtESV1WyP3Bt4MwM6sj4NMxMYiqUWHQu4KYA/SYkIjOsm3BXYWMKFDwU2khjCQ4ELJUJ4SmClRArOCmSXGuKma0fYD5CbzHxFpCSGAhfAVSSUGDUk2BWZaff2g6GE15BsBQ9nwmpIGDiyHQddwNTMKkbZaf9fajXQca1EX44puJZUsnY0ObGmITE3GVLCbEhQUjGVt146j6oasWN+49Vph2w1pZ5EansNZqKBm1txbU57iRRcZ86RWMDdWtBJUHBHwoQPi1GV+JCbntmvok7iTX4/Up9mgyTc/FJYDTcndgH/AA5A/CHsyEkVAAAAAElFTkSuQmCC)}.reveal>.overlay header a.external .icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAcElEQVRYR+2WSQoAIQwEzf8f7XiOMkUQxUPlGkM3hVmiQfQR9GYnH1SsAQlI4DiBqkCMoNb9y2e90IAEJPAcgdznU9+engMaeJ7Azh5Y1U67gAho4DqBqmB1buAf0MB1AlVBek83ZPkmJMGc1wAR+AAqod/B97TRpQAAAABJRU5ErkJggg==)}.reveal>.overlay .viewport{position:absolute;display:flex;top:50px;right:0;bottom:0;left:0}.reveal>.overlay.overlay-preview .viewport iframe{width:100%;height:100%;max-width:100%;max-height:100%;border:0;opacity:0;visibility:hidden;transition:all .3s ease}.reveal>.overlay.overlay-preview.loaded .viewport iframe{opacity:1;visibility:visible}.reveal>.overlay.overlay-preview.loaded .viewport-inner{position:absolute;z-index:-1;left:0;top:45%;width:100%;text-align:center;letter-spacing:normal}.reveal>.overlay.overlay-preview .x-frame-error{opacity:0;transition:opacity .3s ease .3s}.reveal>.overlay.overlay-preview.loaded .x-frame-error{opacity:1}.reveal>.overlay.overlay-preview.loaded .spinner{opacity:0;visibility:hidden;transform:scale(.2)}.reveal>.overlay.overlay-help .viewport{overflow:auto;color:#fff}.reveal>.overlay.overlay-help .viewport .viewport-inner{width:600px;margin:auto;padding:20px 20px 80px 20px;text-align:center;letter-spacing:normal}.reveal>.overlay.overlay-help .viewport .viewport-inner .title{font-size:20px}.reveal>.overlay.overlay-help .viewport .viewport-inner table{border:1px solid #fff;border-collapse:collapse;font-size:16px}.reveal>.overlay.overlay-help .viewport .viewport-inner table td,.reveal>.overlay.overlay-help .viewport .viewport-inner table th{width:200px;padding:14px;border:1px solid #fff;vertical-align:middle}.reveal>.overlay.overlay-help .viewport .viewport-inner table th{padding-top:20px;padding-bottom:20px}.reveal .playback{position:absolute;left:15px;bottom:20px;z-index:30;cursor:pointer;transition:all .4s ease;-webkit-tap-highlight-color:transparent}.reveal.overview .playback{opacity:0;visibility:hidden}.reveal .hljs{min-height:100%}.reveal .hljs table{margin:initial}.reveal .hljs-ln-code,.reveal .hljs-ln-numbers{padding:0;border:0}.reveal .hljs-ln-numbers{opacity:.6;padding-right:.75em;text-align:right;vertical-align:top}.reveal .hljs.has-highlights tr:not(.highlight-line){opacity:.4}.reveal .hljs.has-highlights.fragment{transition:all .2s ease}.reveal .hljs:not(:first-child).fragment{position:absolute;top:0;left:0;width:100%;box-sizing:border-box}.reveal pre[data-auto-animate-target]{overflow:hidden}.reveal pre[data-auto-animate-target] code{height:100%}.reveal .roll{display:inline-block;line-height:1.2;overflow:hidden;vertical-align:top;perspective:400px;perspective-origin:50% 50%}.reveal .roll:hover{background:0 0;text-shadow:none}.reveal .roll span{display:block;position:relative;padding:0 2px;pointer-events:none;transition:all .4s ease;transform-origin:50% 0;transform-style:preserve-3d;backface-visibility:hidden}.reveal .roll:hover span{background:rgba(0,0,0,.5);transform:translate3d(0,0,-45px) rotateX(90deg)}.reveal .roll span:after{content:attr(data-title);display:block;position:absolute;left:0;top:0;padding:0 2px;backface-visibility:hidden;transform-origin:50% 0;transform:translate3d(0,110%,0) rotateX(-90deg)}.reveal aside.notes{display:none}.reveal .speaker-notes{display:none;position:absolute;width:33.3333333333%;height:100%;top:0;left:100%;padding:14px 18px 14px 18px;z-index:1;font-size:18px;line-height:1.4;border:1px solid rgba(0,0,0,.05);color:#222;background-color:#f5f5f5;overflow:auto;box-sizing:border-box;text-align:left;font-family:Helvetica,sans-serif;-webkit-overflow-scrolling:touch}.reveal .speaker-notes .notes-placeholder{color:#ccc;font-style:italic}.reveal .speaker-notes:focus{outline:0}.reveal .speaker-notes:before{content:"Speaker notes";display:block;margin-bottom:10px;opacity:.5}.reveal.show-notes{max-width:75%;overflow:visible}.reveal.show-notes .speaker-notes{display:block}@media screen and (min-width:1600px){.reveal .speaker-notes{font-size:20px}}@media screen and (max-width:1024px){.reveal.show-notes{border-left:0;max-width:none;max-height:70%;max-height:70vh;overflow:visible}.reveal.show-notes .speaker-notes{top:100%;left:0;width:100%;height:30vh;border:0}}@media screen and (max-width:600px){.reveal.show-notes{max-height:60%;max-height:60vh}.reveal.show-notes .speaker-notes{top:100%;height:40vh}.reveal .speaker-notes{font-size:14px}}.reveal .jump-to-slide{position:absolute;top:15px;left:15px;z-index:30;font-size:32px;-webkit-tap-highlight-color:transparent}.reveal .jump-to-slide-input{background:0 0;padding:8px;font-size:inherit;color:currentColor;border:0}.reveal .jump-to-slide-input::placeholder{color:currentColor;opacity:.5}.reveal.has-dark-background .jump-to-slide-input{color:#fff}.reveal.has-light-background .jump-to-slide-input{color:#222}.reveal .jump-to-slide-input:focus{outline:0}.zoomed .reveal *,.zoomed .reveal :after,.zoomed .reveal :before{backface-visibility:visible!important}.zoomed .reveal .controls,.zoomed .reveal .progress{opacity:0}.zoomed .reveal .roll span{background:0 0}.zoomed .reveal .roll span:after{visibility:hidden}.reveal-viewport.loading-scroll-mode{visibility:hidden}.reveal-viewport.reveal-scroll{margin:0 auto;overflow:auto;overflow-x:hidden;overflow-y:auto;z-index:1;--r-scrollbar-width:7px;--r-scrollbar-trigger-size:5px;--r-controls-spacing:8px}@media screen and (max-width:500px){.reveal-viewport.reveal-scroll{--r-scrollbar-width:3px;--r-scrollbar-trigger-size:3px}}.reveal-viewport.reveal-scroll .backgrounds,.reveal-viewport.reveal-scroll .controls,.reveal-viewport.reveal-scroll .playback,.reveal-viewport.reveal-scroll .progress,.reveal-viewport.reveal-scroll .slide-number,.reveal-viewport.reveal-scroll .speaker-notes{display:none!important}.reveal-viewport.reveal-scroll .overlay,.reveal-viewport.reveal-scroll .pause-overlay{position:fixed}.reveal-viewport.reveal-scroll .reveal{overflow:visible;touch-action:manipulation}.reveal-viewport.reveal-scroll .slides{position:static;pointer-events:initial;left:auto;top:auto;width:100%!important;margin:0;padding:0;overflow:visible;display:block;perspective:none;perspective-origin:50% 50%}.reveal-viewport.reveal-scroll .scroll-page{position:relative;width:100%;height:calc(var(--page-height) + var(--page-scroll-padding));z-index:1;overflow:visible}.reveal-viewport.reveal-scroll .scroll-page-sticky{position:sticky;height:var(--page-height);top:0}.reveal-viewport.reveal-scroll .scroll-page-content{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}.reveal-viewport.reveal-scroll .scroll-page section{visibility:visible!important;display:block!important;position:absolute!important;width:var(--slide-width)!important;height:var(--slide-height)!important;top:50%!important;left:50%!important;opacity:1!important;transform:scale(var(--slide-scale)) translate(-50%,-50%)!important;transform-style:flat!important;transform-origin:0 0!important}.reveal-viewport.reveal-scroll .slide-background{display:block!important;position:absolute;top:0;left:0;width:100%;height:100%;z-index:auto!important;visibility:visible;opacity:1;touch-action:manipulation}.reveal-viewport.reveal-scroll[data-scrollbar=auto]::-webkit-scrollbar,.reveal-viewport.reveal-scroll[data-scrollbar=true]::-webkit-scrollbar{display:none}.reveal-viewport.reveal-scroll[data-scrollbar=auto],.reveal-viewport.reveal-scroll[data-scrollbar=true]{scrollbar-width:none}.reveal-viewport.has-dark-background,.reveal.has-dark-background{--r-overlay-element-bg-color:240,240,240;--r-overlay-element-fg-color:0,0,0}.reveal-viewport.has-light-background,.reveal.has-light-background{--r-overlay-element-bg-color:0,0,0;--r-overlay-element-fg-color:240,240,240}.reveal-viewport.reveal-scroll .scrollbar{position:sticky;top:50%;z-index:20;opacity:0;transition:all .3s ease}.reveal-viewport.reveal-scroll .scrollbar.visible,.reveal-viewport.reveal-scroll .scrollbar:hover{opacity:1}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-inner{position:absolute;width:var(--r-scrollbar-width);height:calc(var(--viewport-height) - var(--r-controls-spacing) * 2);right:var(--r-controls-spacing);top:0;transform:translateY(-50%);border-radius:var(--r-scrollbar-width);z-index:10}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-playhead{position:absolute;width:var(--r-scrollbar-width);height:var(--r-scrollbar-width);top:0;left:0;border-radius:var(--r-scrollbar-width);background-color:rgba(var(--r-overlay-element-bg-color),1);z-index:11;transition:background-color .2s ease}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide{position:absolute;width:100%;background-color:rgba(var(--r-overlay-element-bg-color),.2);box-shadow:0 0 0 1px rgba(var(--r-overlay-element-fg-color),.1);border-radius:var(--r-scrollbar-width);transition:background-color .2s ease}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide:after{content:"";position:absolute;width:200%;height:100%;top:0;left:-50%;background:rgba(0,0,0,0);z-index:-1}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active,.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide:hover{background-color:rgba(var(--r-overlay-element-bg-color),.4)}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-trigger{position:absolute;width:100%;transition:background-color .2s ease}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active.has-triggers{background-color:rgba(var(--r-overlay-element-bg-color),.4);z-index:10}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger:after{content:"";position:absolute;width:var(--r-scrollbar-trigger-size);height:var(--r-scrollbar-trigger-size);border-radius:20px;top:50%;left:50%;transform:translate(-50%,-50%);background-color:rgba(var(--r-overlay-element-bg-color),1);transition:transform .2s ease,opacity .2s ease;opacity:.4}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger.active:after,.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger.active~.scrollbar-trigger:after{opacity:1}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger~.scrollbar-trigger.active:after{transform:translate(calc(var(--r-scrollbar-width) * -2),0);background-color:rgba(var(--r-overlay-element-bg-color),1)}html.reveal-print *{-webkit-print-color-adjust:exact}html.reveal-print{width:100%;height:100%;overflow:visible}html.reveal-print body{margin:0 auto!important;border:0;padding:0;float:none!important;overflow:visible}html.reveal-print .nestedarrow,html.reveal-print .reveal .controls,html.reveal-print .reveal .playback,html.reveal-print .reveal .progress,html.reveal-print .reveal.overview,html.reveal-print .state-background{display:none!important}html.reveal-print .reveal pre code{overflow:hidden!important}html.reveal-print .reveal{width:auto!important;height:auto!important;overflow:hidden!important}html.reveal-print .reveal .slides{position:static;width:100%!important;height:auto!important;zoom:1!important;pointer-events:initial;left:auto;top:auto;margin:0!important;padding:0!important;overflow:visible;display:block;perspective:none;perspective-origin:50% 50%}html.reveal-print .reveal .slides .pdf-page{position:relative;overflow:hidden;z-index:1;page-break-after:always}html.reveal-print .reveal .slides .pdf-page:last-of-type{page-break-after:avoid}html.reveal-print .reveal .slides section{visibility:visible!important;display:block!important;position:absolute!important;margin:0!important;padding:0!important;box-sizing:border-box!important;min-height:1px;opacity:1!important;transform-style:flat!important;transform:none!important}html.reveal-print .reveal section.stack{position:relative!important;margin:0!important;padding:0!important;page-break-after:avoid!important;height:auto!important;min-height:auto!important}html.reveal-print .reveal img{box-shadow:none}html.reveal-print .reveal .backgrounds{display:none}html.reveal-print .reveal .slide-background{display:block!important;position:absolute;top:0;left:0;width:100%;height:100%;z-index:auto!important}html.reveal-print .reveal.show-notes{max-width:none;max-height:none}html.reveal-print .reveal .speaker-notes-pdf{display:block;width:100%;height:auto;max-height:none;top:auto;right:auto;bottom:auto;left:auto;z-index:100}html.reveal-print .reveal .speaker-notes-pdf[data-layout=separate-page]{position:relative;color:inherit;background-color:transparent;padding:20px;page-break-after:always;border:0}html.reveal-print .reveal .slide-number-pdf{display:block;position:absolute;font-size:14px;visibility:visible}html.reveal-print .aria-status{display:none}@media print{html:not(.print-pdf){overflow:visible;width:auto;height:auto}html:not(.print-pdf) body{margin:0;padding:0;overflow:visible}html:not(.print-pdf) .reveal{background:#fff;font-size:20pt}html:not(.print-pdf) .reveal .backgrounds,html:not(.print-pdf) .reveal .controls,html:not(.print-pdf) .reveal .progress,html:not(.print-pdf) .reveal .slide-number,html:not(.print-pdf) .reveal .state-background{display:none!important}html:not(.print-pdf) .reveal li,html:not(.print-pdf) .reveal p,html:not(.print-pdf) .reveal td{font-size:20pt!important;color:#000}html:not(.print-pdf) .reveal h1,html:not(.print-pdf) .reveal h2,html:not(.print-pdf) .reveal h3,html:not(.print-pdf) .reveal h4,html:not(.print-pdf) .reveal h5,html:not(.print-pdf) .reveal h6{color:#000!important;height:auto;line-height:normal;text-align:left;letter-spacing:normal}html:not(.print-pdf) .reveal h1{font-size:28pt!important}html:not(.print-pdf) .reveal h2{font-size:24pt!important}html:not(.print-pdf) .reveal h3{font-size:22pt!important}html:not(.print-pdf) .reveal h4{font-size:22pt!important;font-variant:small-caps}html:not(.print-pdf) .reveal h5{font-size:21pt!important}html:not(.print-pdf) .reveal h6{font-size:20pt!important;font-style:italic}html:not(.print-pdf) .reveal a:link,html:not(.print-pdf) .reveal a:visited{color:#000!important;font-weight:700;text-decoration:underline}html:not(.print-pdf) .reveal div,html:not(.print-pdf) .reveal ol,html:not(.print-pdf) .reveal p,html:not(.print-pdf) .reveal ul{visibility:visible;position:static;width:auto;height:auto;display:block;overflow:visible;margin:0;text-align:left!important}html:not(.print-pdf) .reveal pre,html:not(.print-pdf) .reveal table{margin-left:0;margin-right:0}html:not(.print-pdf) .reveal pre code{padding:20px}html:not(.print-pdf) .reveal blockquote{margin:20px 0}html:not(.print-pdf) .reveal .slides{position:static!important;width:auto!important;height:auto!important;left:0!important;top:0!important;margin-left:0!important;margin-top:0!important;padding:0!important;zoom:1!important;transform:none!important;overflow:visible!important;display:block!important;text-align:left!important;perspective:none;perspective-origin:50% 50%}html:not(.print-pdf) .reveal .slides section{visibility:visible!important;position:static!important;width:auto!important;height:auto!important;display:block!important;overflow:visible!important;left:0!important;top:0!important;margin-left:0!important;margin-top:0!important;padding:60px 20px!important;z-index:auto!important;opacity:1!important;page-break-after:always!important;transform-style:flat!important;transform:none!important;transition:none!important}html:not(.print-pdf) .reveal .slides section.stack{padding:0!important}html:not(.print-pdf) .reveal .slides section:last-of-type{page-break-after:avoid!important}html:not(.print-pdf) .reveal .slides section .fragment{opacity:1!important;visibility:visible!important;transform:none!important}html:not(.print-pdf) .reveal .r-fit-text{white-space:normal!important}html:not(.print-pdf) .reveal section img{display:block;margin:15px 0;background:#fff;border:1px solid #666;box-shadow:none}html:not(.print-pdf) .reveal section small{font-size:.8em}html:not(.print-pdf) .reveal .hljs{max-height:100%;white-space:pre-wrap;word-wrap:break-word;word-break:break-word;font-size:15pt}html:not(.print-pdf) .reveal .hljs .hljs-ln-numbers{white-space:nowrap}html:not(.print-pdf) .reveal .hljs td{font-size:inherit!important;color:inherit!important}}
+</style>
+<style>
+/* Rozloženie: slajdy 1280×720, obsah zarovnaný hore; vľavo hore časť hodiny, pod ňou nadpis, potom obsah.
+   Každá trieda má na všetkých slajdoch svoju farbu: Produkt = zelená, Zakaznik = modrá, Objednavka = oranžová. */
+:root {
+  --bg: #F4F5F8;
+  --surface: #FFFFFF;
+  --ink: #171B2E;
+  --muted: #5B6178;
+  --faint: #8A8FA3;
+  --line: #D6D9E3;
+  --produkt: #0A7A54;
+  --produkt-soft: #E0F2EA;
+  --zakaznik: #2F55CC;
+  --zakaznik-soft: #E5EAFB;
+  --objednavka: #B65900;
+  --objednavka-soft: #FBEBD8;
+  --chyba: #C0332A;
+  --chyba-soft: #FBE4E2;
+  --ok: #18794A;
+  --ok-soft: #DFF2E7;
+  --code-bg: #FFFFFF;
+  --syn-kw: #8A2D96;
+  --syn-str: #8A5B33;
+  --syn-com: #707789;
+  --console-bg: #161A26;
+  --console-line: #161A26;
+  --console-fg: #E4E7EF;
+  --console-dim: #8A90A6;
+  --console-err: #FF8A80;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-code: "JetBrains Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141D; --surface: #1A1E2A; --ink: #E9EBF2; --muted: #A4A9BB; --faint: #777D92; --line: #2F3546;
+    --produkt: #4FCB99; --produkt-soft: #14322A; --zakaznik: #92A8FF; --zakaznik-soft: #1C2547;
+    --objednavka: #F2A54A; --objednavka-soft: #3A2911; --chyba: #FF7D72; --chyba-soft: #3D1B19;
+    --ok: #5ED19A; --ok-soft: #14332A; --code-bg: #161A25;
+    --syn-kw: #D69CE4; --syn-str: #D6B18D; --syn-com: #868DA3;
+    --console-bg: #0A0C12; --console-line: #2F3546; --console-fg: #E4E7EF; --console-dim: #8A90A6; --console-err: #FF8A80;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141D; --surface: #1A1E2A; --ink: #E9EBF2; --muted: #A4A9BB; --faint: #777D92; --line: #2F3546;
+  --produkt: #4FCB99; --produkt-soft: #14322A; --zakaznik: #92A8FF; --zakaznik-soft: #1C2547;
+  --objednavka: #F2A54A; --objednavka-soft: #3A2911; --chyba: #FF7D72; --chyba-soft: #3D1B19;
+  --ok: #5ED19A; --ok-soft: #14332A; --code-bg: #161A25;
+  --syn-kw: #D69CE4; --syn-str: #D6B18D; --syn-com: #868DA3;
+  --console-bg: #0A0C12; --console-line: #2F3546; --console-fg: #E4E7EF; --console-dim: #8A90A6; --console-err: #FF8A80;
+  color-scheme: dark;
+}
+
+html { height: 100%; box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--ink); }
+body { height: 100%; margin: 0; }
+.reveal-viewport { background: var(--bg); color: var(--ink); }
+
+/* ---------- Základ reveal.js ---------- */
+.reveal { font-family: var(--font-body); font-size: 28px; font-weight: 400; line-height: 1.35; color: var(--ink); }
+.reveal .slides { text-align: left; }
+.reveal .slides > section { height: 100%; box-sizing: border-box; padding: 40px 72px 52px; flex-direction: column; gap: 16px; }
+.reveal aside.notes { display: none !important; }
+.reveal .controls { color: var(--ink); }
+.reveal .progress { color: var(--objednavka); height: 4px; }
+.reveal .slide-number { background: transparent; color: var(--faint); font-family: var(--font-code); font-size: 13px; right: 92px; bottom: 14px; }
+.reveal .slide-number a { color: inherit; }
+
+.reveal h1, .reveal h2, .reveal h3 { font-family: var(--font-display); color: var(--ink); margin: 0; text-wrap: balance; letter-spacing: -0.012em; }
+.reveal h1 { font-size: 80px; line-height: 1.0; font-weight: 800; }
+.reveal h2 { font-size: 46px; line-height: 1.08; font-weight: 700; }
+.reveal h3 { font-size: 30px; line-height: 1.15; font-weight: 700; }
+.reveal p, .reveal ul, .reveal ol { margin: 0; }
+.reveal strong { font-weight: 700; }
+.eyebrow { font-family: var(--font-code); font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.lead { font-size: 30px; line-height: 1.3; color: var(--muted); max-width: 32ch; }
+.body-text { font-size: 26px; color: var(--muted); max-width: 52ch; }
+.reveal :not(pre) > code { font-family: var(--font-code); font-size: 0.84em; font-weight: 600; padding: 0.06em 0.3em; border-radius: 5px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+
+/* Farby tried (platia v kóde aj v texte) */
+.produkt { --c: var(--produkt); --c-soft: var(--produkt-soft); }
+.zakaznik { --c: var(--zakaznik); --c-soft: var(--zakaznik-soft); }
+.objednavka { --c: var(--objednavka); --c-soft: var(--objednavka-soft); }
+.cls { font-weight: 700; }
+.cls-produkt { color: var(--produkt); }
+.cls-zakaznik { color: var(--zakaznik); }
+.cls-objednavka { color: var(--objednavka); }
+
+/* ---------- Kód ---------- */
+.reveal pre { margin: 0; width: 100%; font-family: var(--font-code); font-size: 18px; line-height: 1.45; text-align: left; position: relative; box-shadow: none; word-wrap: normal; }
+.reveal pre code { display: block; box-sizing: border-box; padding: 14px 18px; background: var(--code-bg); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; max-height: none; white-space: pre; tab-size: 4; font-family: inherit; }
+.reveal pre.small { font-size: 17px; }
+.reveal .hljs-ln { border-collapse: collapse; }
+.reveal .hljs-ln td { padding: 0; border: 0; }
+.reveal .hljs-ln-numbers { color: var(--faint); padding-right: 16px !important; text-align: right; user-select: none; opacity: 1 !important; }
+.reveal .hljs.has-highlights tr:not(.highlight-line) { opacity: 0.28; }
+.reveal .hljs-keyword, .reveal .hljs-built_in, .reveal .hljs-type, .reveal .hljs-literal { color: var(--syn-kw); }
+.reveal .hljs-string { color: var(--syn-str); }
+.reveal .hljs-subst { color: var(--ink); }
+.reveal .hljs-comment { color: var(--syn-com); font-style: italic; }
+.reveal .hljs-number { color: var(--ink); }
+.reveal .hljs-title.function_ { color: var(--ink); font-weight: 600; }
+.reveal .hljs-title.class_ { font-weight: 700; }
+
+/* ---------- Úvodný slajd ---------- */
+.s-title { justify-content: center; }
+.title-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.title-text { display: flex; flex-direction: column; gap: 22px; }
+.hero { display: flex; justify-content: center; }
+.hero-order { --c: var(--objednavka); --c-soft: var(--objednavka-soft); width: 100%; max-width: 480px; border: 2.5px solid var(--c); border-radius: 16px; background: var(--surface); overflow: hidden; }
+.hero-head { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--c); background: var(--c-soft); padding: 12px 20px; border-bottom: 2px solid var(--c); }
+.hero-rows { display: grid; grid-template-columns: auto 1fr; gap: 16px 18px; padding: 20px; align-items: center; }
+.hero-k { font-family: var(--font-code); font-size: 18px; color: var(--muted); }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.keys { position: absolute; left: 72px; bottom: 28px; font-family: var(--font-code); font-size: 13px; color: var(--faint); letter-spacing: 0.02em; }
+
+/* ---------- Čipy (vlastnosti a metódy) ---------- */
+.chip { display: inline-flex; align-items: center; font-family: var(--font-code); font-size: 21px; line-height: 1.2; font-weight: 600; padding: 6px 13px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--surface); color: var(--muted); white-space: nowrap; }
+.chip.produkt, .chip.zakaznik, .chip.objednavka { color: var(--c); border-color: var(--c); background: var(--c-soft); }
+.hero .chip { font-size: 17px; padding: 4px 10px; }
+
+/* ---------- Cieľ hodiny ---------- */
+.goal-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: start; margin-top: 14px; }
+.goals { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 20px; font-size: 29px; }
+.goals li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: baseline; }
+.goals li::before { content: ""; width: 12px; height: 12px; border-radius: 3px; background: var(--ink); transform: translateY(-3px); }
+.definition { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px; }
+.def-term { font-family: var(--font-display); font-weight: 800; font-size: 44px; line-height: 1; }
+.def-sub { font-family: var(--font-code); font-size: 16px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.definition p { font-size: 25px; }
+.def-example { padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); }
+
+/* ---------- Oddeľovače častí ---------- */
+.s-divider { justify-content: center; }
+.divider-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.divider-text { display: flex; flex-direction: column; gap: 20px; }
+.reveal h2.divider-title { font-size: 76px; line-height: 1.0; font-weight: 800; }
+.agenda { list-style: none; padding: 0 0 0 28px; border-left: 1.5px solid var(--line); display: flex; flex-direction: column; gap: 14px; font-size: 24px; color: var(--faint); }
+.agenda li { display: grid; grid-template-columns: 34px 1fr; align-items: center; gap: 12px; }
+.ag-n { font-family: var(--font-code); font-size: 15px; font-weight: 700; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--line); }
+.agenda li.done { color: var(--muted); }
+.agenda li.done .ag-n { border-color: var(--muted); }
+.agenda li.current { color: var(--ink); font-weight: 700; }
+.agenda li.current .ag-n { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* ---------- Jedna trieda vs. viac tried ---------- */
+.mono-box { border: 2px solid var(--ink); border-radius: 14px; background: var(--surface); max-width: 940px; overflow: hidden; }
+.mono-head { font-family: var(--font-code); font-size: 20px; padding: 10px 18px; border-bottom: 1.5px solid var(--line); color: var(--syn-kw); }
+.mono-head b { color: var(--ink); }
+.chip-cloud { display: flex; flex-wrap: wrap; gap: 14px; padding: 22px 20px 24px; }
+.class-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.class-box { border: 2px solid var(--c, var(--ink)); border-radius: 14px; background: var(--surface); display: flex; flex-direction: column; overflow: hidden; }
+.class-head { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--c); background: var(--c-soft); padding: 9px 18px; border-bottom: 1.5px solid var(--c); }
+.chip-col { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px 18px; flex: 1; }
+.class-foot { padding: 10px 18px 13px; color: var(--muted); font-size: 22px; border-top: 1px solid var(--line); }
+.program-strip { display: flex; align-items: center; gap: 16px; border: 2px solid var(--ink); border-radius: 14px; background: var(--surface); padding: 10px 18px; }
+.program-strip .mono-label { font-family: var(--font-code); font-size: 20px; color: var(--syn-kw); }
+.program-strip .mono-label b { color: var(--ink); }
+.program-strip .strip-note { color: var(--muted); font-size: 22px; }
+.tagline { font-family: var(--font-display); font-weight: 700; font-size: 30px; }
+
+.reasons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 12px; }
+.reason { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px 30px; display: flex; flex-direction: column; gap: 14px; }
+.reason p { font-size: 26px; color: var(--muted); }
+.reason p .cls { font-family: var(--font-code); font-size: 0.88em; }
+
+/* ---------- Kód s popisom ---------- */
+.code-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.code-card-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.code-card-head .tag { font-family: var(--font-code); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.code-card-head .name { font-family: var(--font-display); font-weight: 700; font-size: 30px; }
+.code-card-head .desc { color: var(--muted); font-size: 22px; }
+.cols-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.note-box { font-size: 23px; color: var(--muted); background: var(--surface); border: 1px dashed var(--faint); border-radius: 12px; padding: 14px 18px; }
+
+.code-notes { display: grid; grid-template-columns: minmax(0, 1fr) 372px; gap: 26px; align-items: start; }
+.callouts { display: flex; flex-direction: column; gap: 14px; }
+.callout { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px 14px; display: flex; flex-direction: column; gap: 6px; }
+.callout-k { font-family: var(--font-code); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.callout p { font-size: 21px; line-height: 1.3; }
+.callout.warn { background: var(--chyba-soft); border-color: var(--chyba); }
+.callout.warn .callout-k { color: var(--chyba); }
+
+/* ---------- Diagram tried ---------- */
+.uml { width: 100%; height: auto; max-height: 430px; display: block; }
+.uml .box { fill: var(--surface); stroke: var(--c); stroke-width: 2.5; }
+.uml .head { fill: var(--c-soft); stroke: var(--c); stroke-width: 2.5; }
+.uml .rule { stroke: var(--line); stroke-width: 1.5; }
+.uml .uml-title { font-family: var(--font-display); font-weight: 700; font-size: 27px; fill: var(--c); }
+.uml .uml-txt { font-family: var(--font-code); font-size: 19px; fill: var(--ink); }
+.uml .t-z { fill: var(--zakaznik); font-weight: 700; }
+.uml .t-p { fill: var(--produkt); font-weight: 700; }
+.uml .t-kw { fill: var(--syn-kw); }
+.uml .arrow { fill: none; stroke-width: 3; stroke-linejoin: round; }
+.uml .arrow-z { stroke: var(--zakaznik); }
+.uml .arrow-p { stroke: var(--produkt); }
+.uml .fill-z { fill: var(--zakaznik); }
+.uml .fill-p { fill: var(--produkt); }
+.uml .arrow-label { font-family: var(--font-body); font-weight: 700; font-size: 21px; }
+.caption { font-size: 25px; color: var(--muted); }
+.caption strong { color: var(--ink); }
+
+/* ---------- Kroky v Main ---------- */
+.topline { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.steps { display: flex; gap: 6px; font-family: var(--font-code); font-size: 13px; font-weight: 600; }
+.step { padding: 3px 10px; border-radius: 999px; border: 1.5px solid var(--line); color: var(--faint); background: transparent; }
+.step.is-done { color: var(--muted); border-color: var(--muted); }
+.step.is-current { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.memory { position: relative; border: 1.5px dashed var(--faint); border-radius: 14px; padding: 22px 18px 18px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.memory-label { position: absolute; top: -11px; left: 16px; padding: 0 8px; background: var(--bg); font-family: var(--font-code); font-size: 12px; line-height: 20px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.mem-row { display: flex; gap: 20px; align-items: flex-start; }
+
+.obj { border: 2px solid var(--c, var(--ink)); border-radius: 10px; background: var(--surface); font-family: var(--font-code); font-size: 16px; line-height: 1.4; overflow: hidden; flex: none; }
+.obj.zakaznik { width: 300px; }
+.obj.produkt { width: 222px; }
+.obj-head { padding: 5px 12px; background: var(--c-soft, var(--surface)); border-bottom: 1.5px solid var(--c, var(--ink)); white-space: nowrap; }
+.o-name { font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.o-sep { color: var(--faint); }
+.o-type { font-weight: 700; color: var(--c, var(--ink)); }
+.obj-body { padding: 7px 12px 9px; white-space: nowrap; }
+.o-k { color: var(--ink); }
+.o-s { color: var(--syn-str); }
+.o-n { color: var(--ink); font-weight: 600; }
+.order-grid { display: grid; grid-template-columns: auto auto; gap: 10px 14px; padding: 12px 14px 14px; align-items: center; justify-content: start; }
+.slot-k { color: var(--muted); align-self: start; padding-top: 6px; white-space: nowrap; }
+.null-val { display: inline-block; font-style: italic; color: var(--faint); border: 1.5px dashed var(--faint); border-radius: 6px; padding: 2px 10px; }
+.null-val.is-err { color: var(--chyba); border-color: var(--chyba); background: var(--chyba-soft); font-weight: 700; font-style: normal; }
+.list-box { border: 1.5px dashed var(--produkt); border-radius: 10px; padding: 6px 10px 10px; display: flex; flex-direction: column; gap: 6px; min-width: 250px; }
+.list-head { display: flex; justify-content: space-between; gap: 18px; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.list-count { font-weight: 700; color: var(--ink); }
+.list-items { display: flex; gap: 10px; align-items: flex-start; }
+.list-empty { font-style: italic; color: var(--faint); font-size: 15px; padding: 2px 0; }
+
+.run-grid { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; align-items: start; }
+.side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.console { background: var(--console-bg); border: 1px solid var(--console-line); border-radius: 12px; overflow: hidden; font-family: var(--font-code); font-size: 16px; line-height: 1.5; color: var(--console-fg); }
+.console-head { padding: 6px 14px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--console-dim); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.console-body { padding: 10px 14px 12px; white-space: pre-wrap; }
+.c-err { color: var(--console-err); }
+.c-dim { color: var(--console-dim); }
+.calc { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px 12px; font-family: var(--font-code); font-size: 16px; line-height: 1.5; }
+.calc-head { font-weight: 700; margin-bottom: 4px; }
+.calc-grid { display: grid; grid-template-columns: auto auto; justify-content: space-between; gap: 2px 20px; }
+.calc-grid .v { color: var(--muted); }
+.calc-grid .res { color: var(--ink); font-weight: 700; }
+
+/* ---------- Prístup cez bodky ---------- */
+.dotchain { display: flex; align-items: flex-start; margin-top: 18px; }
+.seg { display: flex; flex-direction: column; gap: 12px; }
+.seg .tok { font-family: var(--font-code); font-size: 46px; font-weight: 700; line-height: 1.1; color: var(--c, var(--ink)); white-space: nowrap; }
+.seg .seg-info { border-top: 4px solid var(--c, var(--ink)); padding: 10px 14px 0 0; font-size: 22px; color: var(--muted); line-height: 1.3; }
+.seg .seg-info b { color: var(--c, var(--ink)); }
+.seg.meno { --c: var(--ink); }
+.seg.meno .seg-info { color: var(--syn-str); font-family: var(--font-code); font-size: 20px; font-weight: 600; }
+.try { margin-top: 10px; font-size: 26px; color: var(--muted); display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+
+/* ---------- Chyby ---------- */
+.err-tag { display: inline-block; vertical-align: middle; font-family: var(--font-code); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--chyba); background: var(--chyba-soft); border: 1.5px solid var(--chyba); border-radius: 999px; padding: 3px 12px; margin-right: 14px; transform: translateY(-5px); }
+.reveal h2 code { font-size: 0.8em; }
+.err-grid { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; align-items: start; }
+.fix { font-size: 24px; color: var(--muted); }
+.fix strong { color: var(--ink); }
+.compare { display: flex; flex-direction: column; gap: 16px; }
+.cmp { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 20px; align-items: center; }
+.cmp-head { font-family: var(--font-display); font-weight: 700; font-size: 26px; display: flex; align-items: center; gap: 10px; grid-row: span 2; align-self: start; padding-top: 10px; }
+.cmp-head .mark { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-body); font-size: 22px; color: var(--surface); }
+.cmp-bad .cmp-head { color: var(--chyba); }
+.cmp-bad .mark { background: var(--chyba); }
+.cmp-good .cmp-head { color: var(--ok); }
+.cmp-good .mark { background: var(--ok); }
+.cmp-bad pre code { border-color: var(--chyba); }
+.cmp-good pre code { border-color: var(--ok); }
+.cmp-result { font-size: 22px; color: var(--muted); }
+.cmp-result .err { color: var(--chyba); font-weight: 700; font-family: var(--font-code); font-size: 0.9em; }
+.cmp-result .good { color: var(--ok); font-weight: 700; }
+.analogy { font-size: 25px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 22px; }
+.member-list { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; font-family: var(--font-code); font-size: 21px; flex: 1; }
+.member { padding: 4px 10px; border-radius: 6px; border: 1.5px solid transparent; align-self: flex-start; }
+.member.is-wrong { color: var(--chyba); border-color: var(--chyba); background: var(--chyba-soft); text-decoration: line-through; text-decoration-thickness: 2px; }
+.member.is-right { color: var(--ok); border-color: var(--ok); background: var(--ok-soft); font-weight: 700; }
+.verdict { padding: 12px 18px 14px; border-top: 1px solid var(--line); font-size: 22px; }
+.verdict.bad { color: var(--chyba); }
+.verdict.good { color: var(--ok); }
+.rule-line { font-family: var(--font-display); font-weight: 700; font-size: 30px; }
+
+/* ---------- Zhrnutie, kvíz, úloha ---------- */
+.summary { display: flex; flex-direction: column; margin-top: 6px; }
+.sum-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 28px; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.sum-row:first-child { border-top: 1px solid var(--line); }
+.sum-k { font-size: 26px; font-weight: 600; }
+.sum-v code { font-size: 19px !important; }
+.quiz { display: flex; flex-direction: column; gap: 18px; margin-top: 6px; }
+.q { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 18px; align-items: start; }
+.q-n { font-family: var(--font-display); font-weight: 800; font-size: 26px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--ink); }
+.q-body { display: flex; flex-direction: column; gap: 6px; padding-top: 4px; }
+.q-body p { font-size: 27px; }
+.q-body .q-a { font-size: 24px; color: var(--ok); font-weight: 600; }
+.tasks { list-style: none; padding: 0; counter-reset: task; display: flex; flex-direction: column; gap: 22px; margin-top: 8px; }
+.tasks li { counter-increment: task; display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 18px; align-items: start; font-size: 28px; }
+.tasks li::before { content: counter(task); font-family: var(--font-display); font-weight: 800; font-size: 26px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--ink); }
+.tasks li.bonus::before { content: "+"; border-style: dashed; color: var(--muted); }
+.tasks li.bonus { color: var(--muted); }
+
+/* ---------- Prepínač témy ---------- */
+.theme-toggle { position: fixed; z-index: 40; top: calc(12px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; display: grid; place-items: center; padding: 0; opacity: 0.55; transition: opacity 0.2s ease; }
+.theme-toggle:hover { opacity: 1; }
+.theme-toggle:focus-visible { opacity: 1; outline: 2px solid var(--ink); outline-offset: 2px; }
+.theme-toggle svg { width: 18px; height: 18px; }
+.reveal.overview ~ .theme-toggle { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section .fragment { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<button type="button" class="theme-toggle" id="theme-toggle" aria-label="Prepnúť svetlú alebo tmavú tému" title="Prepnúť tému (T)">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+</button>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- =============== ÚVOD =============== -->
+<section class="s-title">
+  <div class="title-grid">
+    <div class="title-text">
+      <p class="eyebrow">C# · Kompozícia (skladanie objektov)</p>
+      <h1>Spolupráca viacerých tried</h1>
+      <p class="lead">Ako jedna trieda obsahuje iné triedy a ako spolu objekty spolupracujú.</p>
+    </div>
+    <div class="hero" aria-hidden="true">
+      <div class="hero-order">
+        <div class="hero-head">Objednavka</div>
+        <div class="hero-rows">
+          <span class="hero-k">Vlastnik</span>
+          <div class="hero-chips"><span class="chip zakaznik">Zakaznik</span></div>
+          <span class="hero-k">Polozky</span>
+          <div class="hero-chips"><span class="chip produkt">Produkt</span><span class="chip produkt">Produkt</span><span class="chip produkt">Produkt</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="keys">← → listovanie · Esc prehľad · F celá obrazovka · S poznámky · T svetlá/tmavá téma</p>
+  <aside class="notes">
+    Úvod hodiny. Doteraz sme všetko písali do Program alebo do jednej triedy Produkt. Dnes uvidíme, ako môže jedna trieda obsahovať iné triedy a ako spolu objekty spolupracujú.
+    Ovládanie: šípky = listovanie, Esc = prehľad slajdov, F = celá obrazovka, S = toto okno s poznámkami, T = svetlá/tmavá téma.
+  </aside>
+</section>
+
+<section>
+  <p class="eyebrow">Cieľ hodiny</p>
+  <h2>Čo sa dnes naučíme</h2>
+  <div class="goal-grid">
+    <ul class="goals">
+      <li><span>Prečo rozdeliť program na <strong>viac tried</strong></span></li>
+      <li><span>Ako jedna trieda <strong>obsahuje</strong> iné triedy</span></li>
+      <li><span>Ako spolu objekty <strong>interagujú</strong>: volajú metódy a čítajú vlastnosti</span></li>
+      <li><span>Na aké <strong>chyby</strong> si dať pozor</span></li>
+    </ul>
+    <div class="definition">
+      <div class="def-term">Kompozícia</div>
+      <div class="def-sub">skladanie objektov</div>
+      <p>Objekt sa skladá z iných objektov. Ako auto, ktoré má motor a štyri kolesá.</p>
+      <p class="def-example">Objednávka <strong>má</strong> zákazníka a <strong>má</strong> zoznam produktov.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Kompozícia = vzťah „má“ (has-a). Objednávka má zákazníka, objednávka má produkty. Môžete sa opýtať triedy na ďalšie príklady: auto má motor, škola má triedy, playlist má skladby.
+  </aside>
+</section>
+
+<!-- =============== ČASŤ 1 =============== -->
+<section class="s-divider">
+  <div class="divider-grid">
+    <div class="divider-text">
+      <p class="eyebrow">Časť 1 z 5</p>
+      <h2 class="divider-title">Prečo potrebujeme viac tried?</h2>
+      <p class="lead">Reálne aplikácie sú zložité. Jedna trieda na všetko nestačí.</p>
+    </div>
+    <ol class="agenda">
+      <li class="current"><span class="ag-n">1</span>Prečo viac tried?</li>
+      <li><span class="ag-n">2</span>Stavebné kamene</li>
+      <li><span class="ag-n">3</span>Trieda, ktorá to spája</li>
+      <li><span class="ag-n">4</span>Spojenie v metóde Main</li>
+      <li><span class="ag-n">5</span>Na čo si dať pozor</li>
+    </ol>
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-id="rozdelenie">
+  <p class="eyebrow">Časť 1 · Prečo viac tried?</p>
+  <h2>Doteraz: všetko v jednej triede</h2>
+  <div class="mono-box" data-id="box-program">
+    <div class="mono-head">class <b>Program</b></div>
+    <div class="chip-cloud">
+      <span class="chip" data-id="ch-meno">Meno</span>
+      <span class="chip" data-id="ch-cena">Cena</span>
+      <span class="chip" data-id="ch-pridaj">PridajDoKosika()</span>
+      <span class="chip" data-id="ch-nazov">Nazov</span>
+      <span class="chip" data-id="ch-email">Email</span>
+      <span class="chip" data-id="ch-suma">SpocitajSumu()</span>
+      <span class="chip" data-id="ch-polozky">Polozky</span>
+      <span class="chip" data-id="ch-info">DajInfo()</span>
+      <span class="chip" data-id="ch-main">Main()</span>
+    </div>
+  </div>
+  <p class="body-text">Kým je program malý, funguje to. Reálne aplikácie sú ale zložité a v jednej triede sa začnú miešať produkty, zákazníci aj samotný nákup.</p>
+  <aside class="notes">
+    Všetko je v jednej triede: údaje o produkte, o zákazníkovi aj logika nákupu. Opýtajte sa: Čo patrí k čomu? Na ďalšom slajde sa čipy samy roztriedia.
+  </aside>
+</section>
+
+<section data-auto-animate data-auto-animate-id="rozdelenie">
+  <p class="eyebrow">Časť 1 · Prečo viac tried?</p>
+  <h2>Každá trieda rieši jednu vec</h2>
+  <div class="class-row">
+    <div class="class-box produkt">
+      <div class="class-head">Produkt</div>
+      <div class="chip-col">
+        <span class="chip produkt" data-id="ch-nazov">Nazov</span>
+        <span class="chip produkt" data-id="ch-cena">Cena</span>
+        <span class="chip produkt" data-id="ch-info">DajInfo()</span>
+      </div>
+      <div class="class-foot">názov a cena tovaru</div>
+    </div>
+    <div class="class-box zakaznik">
+      <div class="class-head">Zakaznik</div>
+      <div class="chip-col">
+        <span class="chip zakaznik" data-id="ch-meno">Meno</span>
+        <span class="chip zakaznik" data-id="ch-email">Email</span>
+      </div>
+      <div class="class-foot">kto nakupuje</div>
+    </div>
+    <div class="class-box objednavka">
+      <div class="class-head">Objednavka</div>
+      <div class="chip-col">
+        <span class="chip objednavka" data-id="ch-vlastnik">Vlastnik</span>
+        <span class="chip objednavka" data-id="ch-polozky">Polozky</span>
+        <span class="chip objednavka" data-id="ch-pridaj">PridajDoKosika()</span>
+        <span class="chip objednavka" data-id="ch-suma">SpocitajSumu()</span>
+      </div>
+      <div class="class-foot">samotný nákup</div>
+    </div>
+  </div>
+  <div class="program-strip" data-id="box-program">
+    <span class="mono-label">class <b>Program</b></span>
+    <span class="chip" data-id="ch-main">Main()</span>
+    <span class="strip-note">iba vytvorí objekty a prepojí ich</span>
+  </div>
+  <p class="tagline">Nemiešame hrušky s jablkami.</p>
+  <aside class="notes">
+    Produkt rieši cenu a názov. Zakaznik rieši meno a kontakt. Objednavka rieši nákup. Všimnite si novú vlastnosť Vlastnik: vznikla až rozdelením, lebo objednávka teraz potrebuje vedieť, komu patrí. V Program ostala iba metóda Main.
+  </aside>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 1 · Prečo viac tried?</p>
+  <h2>Dva dôvody</h2>
+  <div class="reasons">
+    <div class="reason">
+      <h3>Rozdelenie zodpovednosti</h3>
+      <p>Každá trieda sa stará len o svoje. <span class="cls cls-produkt">Produkt</span> rieši cenu a názov, <span class="cls cls-zakaznik">Zakaznik</span> meno a e-mail, <span class="cls cls-objednavka">Objednavka</span> nákup.</p>
+    </div>
+    <div class="reason">
+      <h3>Prehľadnosť</h3>
+      <p>Kód sa číta ľahšie, keď je rozdelený na menšie, logické celky. Chybu hľadáš v jednej malej triede, nie v celom programe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== ČASŤ 2 =============== -->
+<section class="s-divider">
+  <div class="divider-grid">
+    <div class="divider-text">
+      <p class="eyebrow">Časť 2 z 5</p>
+      <h2 class="divider-title">Stavebné kamene</h2>
+      <p class="lead">Príprava tried: dátové objekty, ktoré držia hlavne vlastnosti.</p>
+    </div>
+    <ol class="agenda">
+      <li class="done"><span class="ag-n">1</span>Prečo viac tried?</li>
+      <li class="current"><span class="ag-n">2</span>Stavebné kamene</li>
+      <li><span class="ag-n">3</span>Trieda, ktorá to spája</li>
+      <li><span class="ag-n">4</span>Spojenie v metóde Main</li>
+      <li><span class="ag-n">5</span>Na čo si dať pozor</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 2 · Stavebné kamene</p>
+  <h2>Dátové triedy</h2>
+  <div class="cols-2">
+    <div class="code-card">
+      <div class="code-card-head"><span class="tag">Trieda A</span><span class="name cls-produkt">Produkt</span><span class="desc">tovar v obchode</span></div>
+      <pre><code class="language-csharp" data-trim data-line-numbers="|3-4|6-10" data-fragment-index="0">
+public class Produkt
+{
+    public string Nazov;
+    public double Cena;
+
+    // Výpis informácií o produkte
+    public string DajInfo()
+    {
+        return $"{Nazov} ({Cena} EUR)";
+    }
+}
+      </code></pre>
+    </div>
+    <div class="code-card">
+      <div class="code-card-head"><span class="tag">Trieda B</span><span class="name cls-zakaznik">Zakaznik</span><span class="desc">človek, ktorý nakupuje</span></div>
+      <pre><code class="language-csharp" data-trim data-line-numbers>
+public class Zakaznik
+{
+    public string Meno;
+    public string Email;
+}
+      </code></pre>
+      <div class="note-box fragment" data-fragment-index="2">Tieto triedy slúžia hlavne na <strong>držanie dát</strong> (vlastností). Zatiaľ o sebe navzájom nič nevedia.</div>
+    </div>
+  </div>
+  <aside class="notes">
+    Produkt reprezentuje tovar v obchode, Zakaznik človeka, ktorý nakupuje. Najprv vlastnosti (Nazov, Cena), potom metóda DajInfo, ktorá vráti text o produkte.
+    Pozn.: na slovenskom Windows vypíše DajInfo() desatinnú čiarku, napr. „Mlieko (1,2 EUR)“, hoci v kóde píšeme 1.20 s bodkou.
+  </aside>
+</section>
+
+<!-- =============== ČASŤ 3 =============== -->
+<section class="s-divider">
+  <div class="divider-grid">
+    <div class="divider-text">
+      <p class="eyebrow">Časť 3 z 5</p>
+      <h2 class="divider-title">Trieda, ktorá to spája</h2>
+      <p class="lead">Objednavka obsahuje iné objekty. To je kľúčový moment dnešnej hodiny.</p>
+    </div>
+    <ol class="agenda">
+      <li class="done"><span class="ag-n">1</span>Prečo viac tried?</li>
+      <li class="done"><span class="ag-n">2</span>Stavebné kamene</li>
+      <li class="current"><span class="ag-n">3</span>Trieda, ktorá to spája</li>
+      <li><span class="ag-n">4</span>Spojenie v metóde Main</li>
+      <li><span class="ag-n">5</span>Na čo si dať pozor</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 3 · Trieda, ktorá to spája</p>
+  <h2>Objednávka má zákazníka aj produkty</h2>
+  <svg class="uml" viewBox="0 0 1136 430" role="img" aria-label="Diagram tried: Objednavka má jedného zákazníka typu Zakaznik a zoznam produktov typu Produkt">
+    <defs>
+      <marker id="ah-z" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="fill-z"/></marker>
+      <marker id="ah-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="fill-p"/></marker>
+    </defs>
+
+    <g class="objednavka">
+      <rect x="40" y="100" width="390" height="228" rx="12" class="box"/>
+      <path d="M52,100 H418 A12,12 0 0 1 430,112 V148 H40 V112 A12,12 0 0 1 52,100 Z" class="head"/>
+      <text x="235" y="133" text-anchor="middle" class="uml-title">Objednavka</text>
+      <text x="62" y="186" class="uml-txt">Vlastnik : <tspan class="t-z">Zakaznik</tspan></text>
+      <text x="62" y="220" class="uml-txt">Polozky : List&lt;<tspan class="t-p">Produkt</tspan>&gt;</text>
+      <line x1="40" y1="240" x2="430" y2="240" class="rule"/>
+      <text x="62" y="276" class="uml-txt">PridajDoKosika(<tspan class="t-p">Produkt</tspan> p)</text>
+      <text x="62" y="308" class="uml-txt">SpocitajSumu() : <tspan class="t-kw">double</tspan></text>
+    </g>
+
+    <g class="zakaznik">
+      <rect x="756" y="24" width="340" height="150" rx="12" class="box"/>
+      <path d="M768,24 H1084 A12,12 0 0 1 1096,36 V72 H756 V36 A12,12 0 0 1 768,24 Z" class="head"/>
+      <text x="926" y="57" text-anchor="middle" class="uml-title">Zakaznik</text>
+      <text x="778" y="112" class="uml-txt">Meno : <tspan class="t-kw">string</tspan></text>
+      <text x="778" y="146" class="uml-txt">Email : <tspan class="t-kw">string</tspan></text>
+    </g>
+
+    <g class="produkt">
+      <rect x="756" y="234" width="340" height="188" rx="12" class="box"/>
+      <path d="M768,234 H1084 A12,12 0 0 1 1096,246 V282 H756 V246 A12,12 0 0 1 768,234 Z" class="head"/>
+      <text x="926" y="267" text-anchor="middle" class="uml-title">Produkt</text>
+      <text x="778" y="320" class="uml-txt">Nazov : <tspan class="t-kw">string</tspan></text>
+      <text x="778" y="354" class="uml-txt">Cena : <tspan class="t-kw">double</tspan></text>
+      <line x1="756" y1="372" x2="1096" y2="372" class="rule"/>
+      <text x="778" y="404" class="uml-txt">DajInfo() : <tspan class="t-kw">string</tspan></text>
+    </g>
+
+    <g class="fragment">
+      <path d="M430,180 H570 V99 H748" class="arrow arrow-z" marker-end="url(#ah-z)"/>
+      <text x="660" y="86" text-anchor="middle" class="arrow-label t-z">1 zákazník</text>
+    </g>
+    <g class="fragment">
+      <path d="M430,214 H612 V328 H748" class="arrow arrow-p" marker-end="url(#ah-p)"/>
+      <text x="740" y="362" text-anchor="end" class="arrow-label t-p">0 až N produktov</text>
+    </g>
+  </svg>
+  <p class="caption fragment">Vzťah <strong>„má“</strong>: objekt sa skladá z iných objektov. Tomu hovoríme <strong>kompozícia</strong>.</p>
+  <aside class="notes">
+    Toto nakreslite študentom na tabuľu. Objednávka patrí jednému zákazníkovi. Objednávka obsahuje zoznam produktov (0 až N).
+    Pozn.: UML rozlišuje agregáciu a kompozíciu. Na tejto hodine používame slovo kompozícia vo všeobecnom význame: objekt poskladaný z iných objektov.
+  </aside>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 3 · Trieda, ktorá to spája</p>
+  <h2>Objednavka: vlastnosti</h2>
+  <div class="code-notes">
+    <pre><code class="language-csharp" data-trim data-line-numbers="|3-4|6-7|7" data-fragment-index="0">
+public class Objednavka
+{
+    // 1. Väzba na iný objekt
+    public Zakaznik Vlastnik;
+
+    // 2. Zoznam objektov (košík)
+    public List&lt;Produkt&gt; Polozky = new List&lt;Produkt&gt;();
+
+    // 3. a 4. metódy sú na ďalšom slajde
+}
+    </code></pre>
+    <div class="callouts">
+      <div class="callout fragment" data-fragment-index="0">
+        <div class="callout-k">Riadok 4 · väzba na objekt</div>
+        <p>Typ vlastnosti je naša vlastná trieda <code>Zakaznik</code>. Objednávka má svojho vlastníka.</p>
+      </div>
+      <div class="callout fragment" data-fragment-index="1">
+        <div class="callout-k">Riadok 7 · zoznam objektov</div>
+        <p>Košík: do zoznamu <code>Polozky</code> sa zmestí ľubovoľný počet produktov.</p>
+      </div>
+      <div class="callout warn fragment" data-fragment-index="2">
+        <div class="callout-k">Pozor</div>
+        <p>Zoznam musíme vytvoriť cez <code>new List&lt;Produkt&gt;()</code>. Inak by bol <code>null</code> a program by spadol.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Kľúčový moment: typ vlastnosti nemusí byť len string alebo double, môže to byť aj naša vlastná trieda. Vlastnik je typu Zakaznik, Polozky je zoznam objektov typu Produkt.
+    Inicializácia new List je dôležitá. K tejto chybe sa vrátime v časti 5.
+  </aside>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 3 · Trieda, ktorá to spája</p>
+  <h2>Objednavka: metódy</h2>
+  <div class="code-notes">
+    <pre><code class="language-csharp" data-trim data-line-numbers="|2|4-5|11-15|16" data-fragment-index="0">
+// 3. Metóda na pridanie tovaru
+public void PridajDoKosika(Produkt p)
+{
+    Polozky.Add(p);
+    Console.WriteLine($"Do košíka pridané: {p.Nazov}");
+}
+
+// 4. Metóda na výpočet sumy
+public double SpocitajSumu()
+{
+    double spolu = 0;
+    foreach (Produkt p in Polozky)
+    {
+        spolu = spolu + p.Cena; // Čítame cenu z inej triedy
+    }
+    return spolu;
+}
+    </code></pre>
+    <div class="callouts">
+      <div class="callout fragment" data-fragment-index="0">
+        <div class="callout-k">Riadok 2 · objekt ako parameter</div>
+        <p>Vstupom je celý objekt typu <code>Produkt</code>, nie len jeho názov.</p>
+      </div>
+      <div class="callout fragment" data-fragment-index="1">
+        <div class="callout-k">Riadky 4–5</div>
+        <p>Produkt uložíme do zoznamu a z objektu <code>p</code> prečítame jeho <code>Nazov</code>.</p>
+      </div>
+      <div class="callout fragment" data-fragment-index="2">
+        <div class="callout-k">Riadky 11–15 · interakcia</div>
+        <p><code>foreach</code> prejde všetky produkty v košíku. Cenu <code>p.Cena</code> čítame z inej triedy.</p>
+      </div>
+      <div class="callout fragment" data-fragment-index="3">
+        <div class="callout-k">Riadok 16</div>
+        <p><code>return</code> vráti výsledok tomu, kto metódu zavolal.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    PridajDoKosika dostane celý objekt Produkt. SpocitajSumu prejde zoznam tejto objednávky a sčíta ceny produktov. Toto je interakcia: Objednavka číta údaje z objektov inej triedy.
+  </aside>
+</section>
+
+<!-- =============== ČASŤ 4 =============== -->
+<section class="s-divider">
+  <div class="divider-grid">
+    <div class="divider-text">
+      <p class="eyebrow">Časť 4 z 5</p>
+      <h2 class="divider-title">Spojenie v metóde Main</h2>
+      <p class="lead">Vytvoríme konkrétne objekty a prepojíme ich navzájom.</p>
+    </div>
+    <ol class="agenda">
+      <li class="done"><span class="ag-n">1</span>Prečo viac tried?</li>
+      <li class="done"><span class="ag-n">2</span>Stavebné kamene</li>
+      <li class="done"><span class="ag-n">3</span>Trieda, ktorá to spája</li>
+      <li class="current"><span class="ag-n">4</span>Spojenie v metóde Main</li>
+      <li><span class="ag-n">5</span>Na čo si dať pozor</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Krok 1 -->
+<section data-auto-animate data-auto-animate-id="main-kroky">
+  <div class="topline">
+    <p class="eyebrow">Časť 4 · Spojenie v metóde Main</p>
+    <div class="steps" aria-label="Krok 1 zo 4">
+      <span class="step is-current" data-id="st1">1 Objekty</span>
+      <span class="step" data-id="st2">2 Objednávka</span>
+      <span class="step" data-id="st3">3 Prepojenie</span>
+      <span class="step" data-id="st4">4 Výsledok</span>
+    </div>
+  </div>
+  <h2>Krok 1: vytvoríme „drobné“ objekty</h2>
+  <pre><code class="language-csharp" data-trim data-line-numbers>
+Zakaznik jozko = new Zakaznik();
+jozko.Meno = "Jozef Mrkvička";
+jozko.Email = "jozko@email.sk";
+
+Produkt mlieko = new Produkt() { Nazov = "Mlieko", Cena = 1.20 };
+Produkt chlieb = new Produkt() { Nazov = "Chlieb", Cena = 1.80 };
+  </code></pre>
+  <div class="memory" data-id="memory">
+    <span class="memory-label">V pamäti</span>
+    <div class="mem-row">
+      <div class="obj zakaznik" data-id="o-jozko">
+        <div class="obj-head"><span class="o-name">jozko</span><span class="o-sep"> : </span><span class="o-type">Zakaznik</span></div>
+        <div class="obj-body"><div><span class="o-k">Meno</span> = <span class="o-s">"Jozef Mrkvička"</span></div><div><span class="o-k">Email</span> = <span class="o-s">"jozko@email.sk"</span></div></div>
+      </div>
+      <div class="obj produkt" data-id="o-mlieko">
+        <div class="obj-head"><span class="o-name">mlieko</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+        <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Mlieko"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.20</span></div></div>
+      </div>
+      <div class="obj produkt" data-id="o-chlieb">
+        <div class="obj-head"><span class="o-name">chlieb</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+        <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Chlieb"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.80</span></div></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Krok 1: vytvoríme tri samostatné objekty. Zatiaľ o sebe nevedia. Produkty vytvárame skráteným zápisom s { } (inicializátor objektu), zákazníka po riadkoch. Oba zápisy robia to isté.
+  </aside>
+</section>
+
+<!-- Krok 2 -->
+<section data-auto-animate data-auto-animate-id="main-kroky">
+  <div class="topline">
+    <p class="eyebrow">Časť 4 · Spojenie v metóde Main</p>
+    <div class="steps" aria-label="Krok 2 zo 4">
+      <span class="step is-done" data-id="st1">1 Objekty</span>
+      <span class="step is-current" data-id="st2">2 Objednávka</span>
+      <span class="step" data-id="st3">3 Prepojenie</span>
+      <span class="step" data-id="st4">4 Výsledok</span>
+    </div>
+  </div>
+  <h2>Krok 2: vytvoríme „hlavný“ objekt</h2>
+  <pre><code class="language-csharp" data-trim data-line-numbers data-ln-start-from="8">
+Objednavka mojaObjednavka = new Objednavka();
+  </code></pre>
+  <div class="memory" data-id="memory">
+    <span class="memory-label">V pamäti</span>
+    <div class="mem-row">
+      <div class="obj zakaznik" data-id="o-jozko">
+        <div class="obj-head"><span class="o-name">jozko</span><span class="o-sep"> : </span><span class="o-type">Zakaznik</span></div>
+        <div class="obj-body"><div><span class="o-k">Meno</span> = <span class="o-s">"Jozef Mrkvička"</span></div><div><span class="o-k">Email</span> = <span class="o-s">"jozko@email.sk"</span></div></div>
+      </div>
+      <div class="obj produkt" data-id="o-mlieko">
+        <div class="obj-head"><span class="o-name">mlieko</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+        <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Mlieko"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.20</span></div></div>
+      </div>
+      <div class="obj produkt" data-id="o-chlieb">
+        <div class="obj-head"><span class="o-name">chlieb</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+        <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Chlieb"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.80</span></div></div>
+      </div>
+    </div>
+    <div class="obj objednavka" data-id="o-order">
+      <div class="obj-head"><span class="o-name">mojaObjednavka</span><span class="o-sep"> : </span><span class="o-type">Objednavka</span></div>
+      <div class="order-grid">
+        <span class="slot-k">Vlastnik =</span>
+        <div><span class="null-val" data-id="null-vlastnik">null</span></div>
+        <span class="slot-k">Polozky =</span>
+        <div class="list-box" data-id="list-box">
+          <div class="list-head"><span>List&lt;<span class="cls-produkt">Produkt</span>&gt;</span><span class="list-count" data-id="list-count">Count = 0</span></div>
+          <div class="list-items"><span class="list-empty">prázdny zoznam</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Krok 2: objednávka existuje, ale je prázdna. Vlastnik je zatiaľ null (nikto). Polozky už je prázdny zoznam, nie null, lebo v triede máme = new List&lt;Produkt&gt;().
+  </aside>
+</section>
+
+<!-- Krok 3 -->
+<section data-auto-animate data-auto-animate-id="main-kroky">
+  <div class="topline">
+    <p class="eyebrow">Časť 4 · Spojenie v metóde Main</p>
+    <div class="steps" aria-label="Krok 3 zo 4">
+      <span class="step is-done" data-id="st1">1 Objekty</span>
+      <span class="step is-done" data-id="st2">2 Objednávka</span>
+      <span class="step is-current" data-id="st3">3 Prepojenie</span>
+      <span class="step" data-id="st4">4 Výsledok</span>
+    </div>
+  </div>
+  <h2>Krok 3: prepojíme objekty</h2>
+  <pre><code class="language-csharp" data-trim data-line-numbers data-ln-start-from="10">
+mojaObjednavka.Vlastnik = jozko;
+mojaObjednavka.PridajDoKosika(mlieko);
+mojaObjednavka.PridajDoKosika(chlieb);
+  </code></pre>
+  <div class="run-grid">
+    <div class="memory" data-id="memory">
+      <span class="memory-label">V pamäti</span>
+      <div class="obj objednavka" data-id="o-order">
+        <div class="obj-head"><span class="o-name">mojaObjednavka</span><span class="o-sep"> : </span><span class="o-type">Objednavka</span></div>
+        <div class="order-grid">
+          <span class="slot-k">Vlastnik =</span>
+          <div>
+            <div class="obj zakaznik" data-id="o-jozko">
+              <div class="obj-head"><span class="o-name">jozko</span><span class="o-sep"> : </span><span class="o-type">Zakaznik</span></div>
+              <div class="obj-body"><div><span class="o-k">Meno</span> = <span class="o-s">"Jozef Mrkvička"</span></div><div><span class="o-k">Email</span> = <span class="o-s">"jozko@email.sk"</span></div></div>
+            </div>
+          </div>
+          <span class="slot-k">Polozky =</span>
+          <div class="list-box" data-id="list-box">
+            <div class="list-head"><span>List&lt;<span class="cls-produkt">Produkt</span>&gt;</span><span class="list-count" data-id="list-count">Count = 2</span></div>
+            <div class="list-items">
+              <div class="obj produkt" data-id="o-mlieko">
+                <div class="obj-head"><span class="o-name">mlieko</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+                <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Mlieko"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.20</span></div></div>
+              </div>
+              <div class="obj produkt" data-id="o-chlieb">
+                <div class="obj-head"><span class="o-name">chlieb</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+                <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Chlieb"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.80</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="console" data-id="console">
+        <div class="console-head">Konzola</div>
+        <div class="console-body"><div data-id="c1">Do košíka pridané: Mlieko</div><div data-id="c2">Do košíka pridané: Chlieb</div></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Krok 3: priradíme zákazníka a voláme metódu objednávky. PridajDoKosika zároveň vypisuje do konzoly.
+    Dôležité: objednávka si neukladá kópiu zákazníka, ale odkaz na ten istý objekt jozko. Keby sme neskôr zmenili jozko.Meno, zmení sa aj mojaObjednavka.Vlastnik.Meno.
+  </aside>
+</section>
+
+<!-- Krok 4 -->
+<section data-auto-animate data-auto-animate-id="main-kroky">
+  <div class="topline">
+    <p class="eyebrow">Časť 4 · Spojenie v metóde Main</p>
+    <div class="steps" aria-label="Krok 4 zo 4">
+      <span class="step is-done" data-id="st1">1 Objekty</span>
+      <span class="step is-done" data-id="st2">2 Objednávka</span>
+      <span class="step is-done" data-id="st3">3 Prepojenie</span>
+      <span class="step is-current" data-id="st4">4 Výsledok</span>
+    </div>
+  </div>
+  <h2>Krok 4: získame výsledok</h2>
+  <pre><code class="language-csharp" data-trim data-line-numbers data-ln-start-from="14">
+double vyslednaSuma = mojaObjednavka.SpocitajSumu();
+Console.WriteLine("----------------");
+Console.WriteLine($"Objednávku vytvoril: {mojaObjednavka.Vlastnik.Meno}");
+Console.WriteLine($"Celková cena: {vyslednaSuma} EUR");
+  </code></pre>
+  <div class="run-grid">
+    <div class="memory" data-id="memory">
+      <span class="memory-label">V pamäti</span>
+      <div class="obj objednavka" data-id="o-order">
+        <div class="obj-head"><span class="o-name">mojaObjednavka</span><span class="o-sep"> : </span><span class="o-type">Objednavka</span></div>
+        <div class="order-grid">
+          <span class="slot-k">Vlastnik =</span>
+          <div>
+            <div class="obj zakaznik" data-id="o-jozko">
+              <div class="obj-head"><span class="o-name">jozko</span><span class="o-sep"> : </span><span class="o-type">Zakaznik</span></div>
+              <div class="obj-body"><div><span class="o-k">Meno</span> = <span class="o-s">"Jozef Mrkvička"</span></div><div><span class="o-k">Email</span> = <span class="o-s">"jozko@email.sk"</span></div></div>
+            </div>
+          </div>
+          <span class="slot-k">Polozky =</span>
+          <div class="list-box" data-id="list-box">
+            <div class="list-head"><span>List&lt;<span class="cls-produkt">Produkt</span>&gt;</span><span class="list-count" data-id="list-count">Count = 2</span></div>
+            <div class="list-items">
+              <div class="obj produkt" data-id="o-mlieko">
+                <div class="obj-head"><span class="o-name">mlieko</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+                <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Mlieko"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.20</span></div></div>
+              </div>
+              <div class="obj produkt" data-id="o-chlieb">
+                <div class="obj-head"><span class="o-name">chlieb</span><span class="o-sep"> : </span><span class="o-type">Produkt</span></div>
+                <div class="obj-body"><div><span class="o-k">Nazov</span> = <span class="o-s">"Chlieb"</span></div><div><span class="o-k">Cena</span> = <span class="o-n">1.80</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="calc">
+        <div class="calc-head">SpocitajSumu()</div>
+        <div class="calc-grid">
+          <span>spolu = 0</span><span class="v"></span>
+          <span>+ mlieko.Cena</span><span class="v">spolu = 1.20</span>
+          <span>+ chlieb.Cena</span><span class="res">spolu = 3.00</span>
+        </div>
+      </div>
+      <div class="console" data-id="console">
+        <div class="console-head">Konzola</div>
+        <div class="console-body"><div data-id="c1">Do košíka pridané: Mlieko</div><div data-id="c2">Do košíka pridané: Chlieb</div><div>----------------</div><div>Objednávku vytvoril: Jozef Mrkvička</div><div>Celková cena: 3 EUR</div></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Krok 4: zavoláme metódu nad objednávkou, ktorá sčíta ceny produktov vnútri. Výstup je overený spustením programu.
+    C# vypíše „3“, nie „3.00“. Ak chcete vždy dve desatinné miesta, použite {vyslednaSuma:F2} (na slovenskom Windows vypíše 3,00).
+  </aside>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 4 · Spojenie v metóde Main</p>
+  <h2>Prístup cez bodky</h2>
+  <div class="dotchain">
+    <div class="seg objednavka">
+      <span class="tok">mojaObjednavka</span>
+      <span class="seg-info">objekt typu <b>Objednavka</b></span>
+    </div>
+    <div class="seg zakaznik fragment">
+      <span class="tok">.Vlastnik</span>
+      <span class="seg-info">objekt typu <b>Zakaznik</b><br>(to je jozko)</span>
+    </div>
+    <div class="seg meno fragment">
+      <span class="tok">.Meno</span>
+      <span class="seg-info">"Jozef Mrkvička"</span>
+    </div>
+  </div>
+  <p class="body-text fragment">Každá bodka je krok o úroveň hlbšie: z objednávky k zákazníkovi, od zákazníka k jeho menu.</p>
+  <div class="try fragment">Skús: <code>mojaObjednavka.Polozky[0].Nazov</code> <span class="fragment">→ <code>"Mlieko"</code></span></div>
+  <aside class="notes">
+    Toto je riadok z kroku 4: mojaObjednavka.Vlastnik.Meno. Čítame ho zľava doprava, bodka za bodkou.
+    Úloha pre triedu: čo vráti mojaObjednavka.Polozky[0].Nazov? (Prvý produkt v zozname je mlieko.)
+  </aside>
+</section>
+
+<!-- =============== ČASŤ 5 =============== -->
+<section class="s-divider">
+  <div class="divider-grid">
+    <div class="divider-text">
+      <p class="eyebrow">Časť 5 z 5</p>
+      <h2 class="divider-title">Na čo si dať pozor</h2>
+      <p class="lead">Časté chyby pri práci s viacerými triedami.</p>
+    </div>
+    <ol class="agenda">
+      <li class="done"><span class="ag-n">1</span>Prečo viac tried?</li>
+      <li class="done"><span class="ag-n">2</span>Stavebné kamene</li>
+      <li class="done"><span class="ag-n">3</span>Trieda, ktorá to spája</li>
+      <li class="done"><span class="ag-n">4</span>Spojenie v metóde Main</li>
+      <li class="current"><span class="ag-n">5</span>Na čo si dať pozor</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 5 · Na čo si dať pozor</p>
+  <h2><span class="err-tag">Chyba 1</span>Nenastavený objekt</h2>
+  <pre><code class="language-csharp" data-trim data-line-numbers="2|4" data-fragment-index="0">
+Objednavka mojaObjednavka = new Objednavka();
+// mojaObjednavka.Vlastnik = jozko;    ← tento riadok chýba
+
+Console.WriteLine(mojaObjednavka.Vlastnik.Meno);
+  </code></pre>
+  <div class="err-grid fragment" data-fragment-index="1">
+    <div class="obj objednavka">
+      <div class="obj-head"><span class="o-name">mojaObjednavka</span><span class="o-sep"> : </span><span class="o-type">Objednavka</span></div>
+      <div class="order-grid">
+        <span class="slot-k">Vlastnik =</span>
+        <div><span class="null-val is-err">null</span></div>
+        <span class="slot-k">Polozky =</span>
+        <div class="list-box">
+          <div class="list-head"><span>List&lt;<span class="cls-produkt">Produkt</span>&gt;</span><span class="list-count">Count = 0</span></div>
+          <div class="list-items"><span class="list-empty">prázdny zoznam</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="console">
+      <div class="console-head">Konzola</div>
+      <div class="console-body"><div class="c-err">Unhandled exception. System.NullReferenceException: Object reference not set to an instance of an object.</div><div class="c-dim">   at Program.Main(String[] args)</div></div>
+    </div>
+  </div>
+  <p class="fix fragment" data-fragment-index="2"><strong>Prečo?</strong> Vlastník je prázdny (<code>null</code>), takže počítač nevie, koho meno má vypísať. <strong>Riešenie:</strong> objekt najprv priraď, až potom ho používaj.</p>
+  <aside class="notes">
+    NullReferenceException: mojaObjednavka.Vlastnik.Meno spadne, ak sme zabudli riadok mojaObjednavka.Vlastnik = jozko;. Hlásenie v konzole je skutočný výstup .NET (overené spustením).
+    Môžete ukázať aj ochranu: if (mojaObjednavka.Vlastnik != null) { ... }
+  </aside>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 5 · Na čo si dať pozor</p>
+  <h2><span class="err-tag">Chyba 2</span>Zabudnutý <code>new List</code></h2>
+  <div class="compare">
+    <div class="cmp cmp-bad">
+      <div class="cmp-head"><span class="mark" aria-hidden="true">✗</span>Zle</div>
+      <pre><code class="language-csharp" data-trim>
+public List&lt;Produkt&gt; Polozky;
+      </code></pre>
+      <div class="cmp-result"><code>Polozky.Add(p)</code> → <span class="err">NullReferenceException</span></div>
+    </div>
+    <div class="cmp cmp-good fragment">
+      <div class="cmp-head"><span class="mark" aria-hidden="true">✓</span>Správne</div>
+      <pre><code class="language-csharp" data-trim>
+public List&lt;Produkt&gt; Polozky = new List&lt;Produkt&gt;();
+      </code></pre>
+      <div class="cmp-result"><code>Polozky.Add(p)</code> → <span class="good">funguje</span>, produkt je v košíku</div>
+    </div>
+  </div>
+  <div class="analogy fragment">Bez <code>new</code> máš iba nálepku s nápisom „košík“, ale žiadny košík. Zoznam sa musí najprv vytvoriť v pamäti.</div>
+  <aside class="notes">
+    Ak v triede Objednavka napíšeme len public List&lt;Produkt&gt; Polozky; bez = new List&lt;Produkt&gt;();, pri pokuse pridať tovar program spadne. Aj táto chyba je overená spustením.
+  </aside>
+</section>
+
+<section>
+  <p class="eyebrow">Časť 5 · Na čo si dať pozor</p>
+  <h2><span class="err-tag">Chyba 3</span>Metóda v nesprávnej triede</h2>
+  <div class="cols-2">
+    <div class="class-box produkt">
+      <div class="class-head">Produkt</div>
+      <div class="member-list">
+        <span class="member">Nazov</span>
+        <span class="member">Cena</span>
+        <span class="member">DajInfo()</span>
+        <span class="member is-wrong">SpocitajSumu()</span>
+      </div>
+      <p class="verdict bad">✗ Produkt pozná len svoju vlastnú cenu. O ostatných produktoch v košíku nevie.</p>
+    </div>
+    <div class="class-box objednavka fragment">
+      <div class="class-head">Objednavka</div>
+      <div class="member-list">
+        <span class="member">Vlastnik</span>
+        <span class="member">Polozky</span>
+        <span class="member">PridajDoKosika()</span>
+        <span class="member is-right">SpocitajSumu()</span>
+      </div>
+      <p class="verdict good">✓ Objednávka má zoznam všetkých produktov, takže vie spočítať sumu.</p>
+    </div>
+  </div>
+  <p class="rule-line fragment">Metódu daj do triedy, ktorá má dáta, s ktorými metóda pracuje.</p>
+  <aside class="notes">
+    Nerozdeľujte logiku náhodne. Metóda SpocitajSumu patrí do Objednavky, lebo ona má zoznam. Produkt pozná len svoju vlastnú cenu.
+  </aside>
+</section>
+
+<!-- =============== ZÁVER =============== -->
+<section>
+  <p class="eyebrow">Zhrnutie</p>
+  <h2>Čo si zapamätať</h2>
+  <div class="summary">
+    <div class="sum-row"><div class="sum-k">Každá trieda má jednu zodpovednosť</div><div class="sum-v"><code>Produkt</code> · <code>Zakaznik</code> · <code>Objednavka</code></div></div>
+    <div class="sum-row"><div class="sum-k">Vlastnosťou môže byť iný objekt</div><div class="sum-v"><code>public Zakaznik Vlastnik;</code></div></div>
+    <div class="sum-row"><div class="sum-k">…alebo zoznam objektov, nezabudni na <code>new</code></div><div class="sum-v"><code>List&lt;Produkt&gt; Polozky = new List&lt;Produkt&gt;();</code></div></div>
+    <div class="sum-row"><div class="sum-k">Objekty spolupracujú cez metódy</div><div class="sum-v"><code>PridajDoKosika(p)</code> · <code>SpocitajSumu()</code></div></div>
+    <div class="sum-row"><div class="sum-k">K vnoreným údajom sa dostaneš cez bodky</div><div class="sum-v"><code>mojaObjednavka.Vlastnik.Meno</code></div></div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Opakovanie</p>
+  <h2>Rýchly kvíz</h2>
+  <div class="quiz">
+    <div class="q">
+      <div class="q-n">1</div>
+      <div class="q-body">
+        <p>Čo vypíše <code>mojaObjednavka.Vlastnik.Email</code>?</p>
+        <p class="q-a fragment"><code>jozko@email.sk</code></p>
+      </div>
+    </div>
+    <div class="q">
+      <div class="q-n">2</div>
+      <div class="q-body">
+        <p>Prečo metóda <code>SpocitajSumu()</code> nepatrí do triedy <code>Produkt</code>?</p>
+        <p class="q-a fragment">Produkt pozná len svoju cenu. Zoznam všetkých produktov má Objednavka.</p>
+      </div>
+    </div>
+    <div class="q">
+      <div class="q-n">3</div>
+      <div class="q-body">
+        <p>Program spadne s <code>NullReferenceException</code> hneď pri <code>Polozky.Add(p)</code>. Čo sme zabudli?</p>
+        <p class="q-a fragment">Vytvoriť zoznam: <code>= new List&lt;Produkt&gt;();</code></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Precvičovanie</p>
+  <h2>Vyskúšaj si</h2>
+  <ol class="tasks">
+    <li><span>Do triedy <code>Objednavka</code> pridaj metódu <code>VypisKosik()</code>, ktorá vypíše každý produkt pomocou <code>p.DajInfo()</code>.</span></li>
+    <li><span>Pridaj do košíka tretí produkt a over, že sa celková cena zmenila.</span></li>
+    <li class="bonus"><span>Bonus: pridaj do triedy <code>Zakaznik</code> vlastnosť <code>Adresa</code> a vypíš ju spolu s menom vlastníka objednávky.</span></li>
+  </ol>
+  <aside class="notes">
+    Riešenie úlohy 1:
+    public void VypisKosik() { foreach (Produkt p in Polozky) { Console.WriteLine(p.DajInfo()); } }
+    Na slovenskom Windows vypíše: Mlieko (1,2 EUR), Chlieb (1,8 EUR).
+  </aside>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+<script>
+(function () {
+  var root = document.documentElement;
+  root.lang = 'sk';
+
+  // Svetlá / tmavá téma (tlačidlo vpravo hore alebo kláves T)
+  var THEME_KEY = 'spolupraca-tried-tema';
+  try {
+    var saved = localStorage.getItem(THEME_KEY);
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function toggleTheme() {
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+  }
+  var btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', function () { toggleTheme(); btn.blur(); });
+
+  // Názvy tried v kóde dostanú farbu svojej triedy
+  var CLASS_RE = /\b(Produkt|Zakaznik|Objednavka)\b/g;
+  function colorClassNames(scope) {
+    scope.querySelectorAll('code').forEach(function (code) {
+      var walker = document.createTreeWalker(code, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (n) {
+          return n.parentElement.closest('.hljs-string, .hljs-comment, .hljs-ln-numbers, .cls')
+            ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      var nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function (n) {
+        var text = n.nodeValue;
+        CLASS_RE.lastIndex = 0;
+        if (!CLASS_RE.test(text)) return;
+        CLASS_RE.lastIndex = 0;
+        var frag = document.createDocumentFragment();
+        var last = 0, m;
+        while ((m = CLASS_RE.exec(text))) {
+          frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+          var s = document.createElement('span');
+          s.className = 'cls cls-' + m[1].toLowerCase();
+          s.textContent = m[1];
+          frag.appendChild(s);
+          last = m.index + m[1].length;
+        }
+        frag.appendChild(document.createTextNode(text.slice(last)));
+        n.parentNode.replaceChild(frag, n);
+      });
+    });
+  }
+
+  var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var inFrame = true;
+  try { inFrame = window.self !== window.top; } catch (e) {}
+
+  Reveal.initialize({
+    width: 1280,
+    height: 720,
+    margin: 0.04,
+    minScale: 0.1,
+    maxScale: 2.5,
+    center: false,
+    display: 'flex',
+    hash: !inFrame,
+    respondToHashChanges: !inFrame,
+    controls: true,
+    controlsTutorial: false,
+    progress: true,
+    slideNumber: 'c/t',
+    transition: reduceMotion ? 'none' : 'slide',
+    backgroundTransition: 'fade',
+    autoAnimate: !reduceMotion,
+    autoAnimateDuration: 0.8,
+    autoAnimateEasing: 'ease-in-out',
+    plugins: [RevealHighlight, RevealNotes]
+  }).then(function () {
+    var scope = document.querySelector('.reveal');
+    colorClassNames(scope);
+    setTimeout(function () { colorClassNames(scope); }, 60);
+    Reveal.addKeyBinding({ keyCode: 84, key: 'T', description: 'Prepnúť svetlú/tmavú tému' }, toggleTheme);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { Reveal.layout(); });
+  });
+})();
+</script>
+</body>
+</html>
